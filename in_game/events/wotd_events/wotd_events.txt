@@ -1,0 +1,808 @@
+﻿namespace = wotd_flora_and_fauna
+
+# Event 1: Shagged by a Kakapo
+wotd_flora_and_fauna.1 = {
+	type = exploration_event
+	title = wotd_flora_and_fauna.1.title
+	desc = wotd_flora_and_fauna.1.desc
+	hide_portraits = yes
+	image = "gfx/interface/illustrations/event/backgrounds/wotd/kakapo.dds"
+
+	trigger = {
+		exploration_progress > 0.05
+		leader ?= {
+			is_alive = yes
+		}
+		owner = { NOT = { has_variable = wotd_discovered_kakapo } }
+		location = {
+			area = area:south_island_area
+		}
+		area = { is_area_sea = no }
+	}
+
+	immediate = {
+		leader = { save_scope_as = explorer }
+	}
+
+	option = {
+		name = wotd_flora_and_fauna.1.a
+		random = {
+			chance = 50 
+			custom_tooltip = { 
+				text = wotd_flora_and_fauna.1.a.tt
+
+				change_exploration_progress = {
+					value = exploration_time
+					multiply = -0.02
+				}
+			}
+		}
+	}
+	option = {
+		name = wotd_flora_and_fauna.1.b
+		
+	}
+	option = {
+		name = wotd_flora_and_fauna.1.c
+
+		leader = {
+			add_character_modifier = { modifier = friendly_dog mode = add_and_extend }
+		}
+	}
+	after = { 
+		owner = { set_variable = wotd_discovered_kakapo }
+	}
+}
+
+# Stellar Sea Cow
+
+# Event 2: Stellar Sea Cow
+wotd_flora_and_fauna.2 = {
+	type = exploration_event
+	title = wotd_flora_and_fauna.2.title
+	desc = wotd_flora_and_fauna.2.desc
+	hide_portraits = yes
+	image = "gfx/interface/illustrations/event/backgrounds/wotd/stellar_sea_cow.dds"
+
+	trigger = {
+		exploration_progress > 0.05
+		leader ?= {
+			is_alive = yes
+		}
+		
+		owner = { NOT = { has_variable = wotd_discovered_stellar_sea_cow  }}
+		location = {
+			area = area:labrador_sea_area
+			area = area:western_greenland_sea_zones_area
+			area = area:hudson_bay_sea_zones_area
+			area = area:alaska_sea_zones_area
+		}
+	}
+
+	immediate = {
+		leader = { save_scope_as = explorer }
+		owner = { save_scope_as = target_root_country }
+		scope:target_root_country = { random_exploration_from_country = { owner = { random_neighbor_country = { save_scope_as = buyer } } } }
+	}
+
+	option = { # Continue exploring
+		name = wotd_flora_and_fauna.2.a
+		change_exploration_progress = {
+			value = exploration_time
+			multiply = 0.05
+		}
+	}
+	option = { # Stock up on meat
+		name = wotd_flora_and_fauna.2.b
+
+		change_exploration_progress = {
+			value = exploration_time
+			multiply = -0.05
+		}
+
+		owner = {
+			add_country_modifier = { modifier = wotd_sea_whale_meat_modifier years = 2 }
+		}
+	}
+	option = { # Sell the skeleton to a foreign court
+		name = wotd_flora_and_fauna.2.c
+		scope:buyer = {
+			add_gold = -10
+			add_country_modifier = { modifier = wotd_mermaid_skeleton_modifier years = 2 }
+		}
+		owner = { add_gold = 10 }
+	}
+	after = { 
+		owner = { set_variable = wotd_discovered_stellar_sea_cow }
+	}
+}
+
+# Event 3: Man-Sized Salamanders
+# wotd_flora_and_fauna.3 = {
+# 	type = exploration_event
+# 	title = wotd_flora_and_fauna.3.title
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = { 
+# 					owner.capital ?= { region = region:japan_region }
+# 				}
+# 				desc = wotd_flora_and_fauna.3.desc
+# 			}
+# 			desc = wotd_flora_and_fauna.3.desc.european
+# 		}
+# 	}
+# 	hide_portraits = yes
+# 	image = "gfx/interface/illustrations/event/backgrounds/wotd/giant_salamander.dds"
+
+	# trigger = {
+	# 	exploration_progress > 0.05
+	# 	leader ?= {
+	# 		is_alive = yes
+	# 	}
+	# 	owner = { NOT = { has_variable = wotd_discovered_giant_salamander } }
+	# 	location = {
+	# 		region = region:japan_region
+	# 	}
+	# 	area = { is_area_sea = no }
+	# }
+
+# 	immediate = {
+# 		leader = { save_scope_as = explorer }
+# 	}
+
+# 	option = {
+# 		name = wotd_flora_and_fauna.3.a
+# 		# owner = {
+# 		# 	add_country_modifier = { modifier = wotd_salamander_medicine_modifier years = 3 }
+# 		# }
+# 		change_exploration_progress = {
+# 			value = exploration_time
+# 			multiply = -0.03
+# 		}
+# 	}
+# 	option = {
+# 		name = wotd_flora_and_fauna.3.b
+# 		# owner = {
+# 		# 	add_country_modifier = { modifier = wotd_salamander_festival_modifier years = 5 }
+# 		# }
+# 	}
+# 	option = {
+# 		name = wotd_flora_and_fauna.3.c
+# 		# owner = {
+# 		# 	add_country_modifier = { modifier = wotd_royal_salamander_modifier years = 10 }
+# 		# }
+# 		#owner = { add_gold = -5 }
+# 	}
+# 	after = { 
+# 		owner = { set_variable = wotd_discovered_giant_salamander }
+# 	}
+# }
+
+# wotd_flora_and_fauna.4.title: "A Rising Storm"
+# wotd_flora_and_fauna.4.desc: "Dark clouds gather across the horizon, their shadows swallowing the sea ahead. The wind howls, and waves crash violently against the hull as the crew scrambles to secure the rigging. Our charts show no nearby ports, and the nearest known coast lies far beyond sight.\n\nWith thunder rolling closer, the captain must decide our course before the storm breaks. Somewhere beyond the rain and mist, new lands may yet await discovery."
+# wotd_flora_and_fauna.4.a: "Sail south." #Does Nothing but delay progress, fires same next event
+# wotd_flora_and_fauna.4.b: "Sail north." #Does Nothing but delay progress, fires same next event
+# wotd_flora_and_fauna.4.c: "Sail west." #Does Nothing but delay progress, fires same next event
+# wotd_flora_and_fauna.4.d: "Sail east." #Does Nothing but delay progress, fires same next event
+
+# Event 4: A Rising Storm # Dodo Chain
+wotd_flora_and_fauna.4 = {
+	type = exploration_event
+	title = wotd_flora_and_fauna.4.title
+	desc = wotd_flora_and_fauna.4.desc
+	image = "gfx/interface/illustrations/location/sea/ocean_bigger.dds"
+	trigger = {
+		exploration_progress > 0.1
+		leader ?= {
+			is_alive = yes
+		}
+		owner = { NOT = { has_variable = wotd_mauritius_storm_encountered } }
+
+		location = {
+			area = area:madagascar_sea_area
+		}
+		area = { is_area_sea = yes }
+	}
+
+	immediate = {
+		leader = { save_scope_as = explorer }
+	}
+
+	option = {
+		name = wotd_flora_and_fauna.4.a
+		change_exploration_progress = {
+			value = exploration_time
+			multiply = -0.10
+		}
+		hidden_effect = {
+			trigger_event_silently = {
+				id = wotd_flora_and_fauna.5
+				days = 10
+			}
+		}
+		custom_tooltip = wotd_custom_followup_event
+	}
+	option = {
+		name = wotd_flora_and_fauna.4.b
+		change_exploration_progress = {
+			value = exploration_time
+			multiply = -0.10
+		}
+		hidden_effect = {
+			trigger_event_silently = {
+				id = wotd_flora_and_fauna.5
+				days = 10
+			}
+		}
+		custom_tooltip = wotd_custom_followup_event
+	}
+	option = {
+		name = wotd_flora_and_fauna.4.c
+		change_exploration_progress = {
+			value = exploration_time
+			multiply = -0.10
+		}
+		hidden_effect = {
+			trigger_event_silently = {
+				id = wotd_flora_and_fauna.5
+				days = 10
+			}
+		}
+		custom_tooltip = wotd_custom_followup_event
+	}
+	option = {
+		name = wotd_flora_and_fauna.4.d
+		change_exploration_progress = {
+			value = exploration_time
+			multiply = -0.10
+		}
+		hidden_effect = {
+			trigger_event_silently = {
+				id = wotd_flora_and_fauna.5
+				days = 10
+			}
+		}
+		custom_tooltip = wotd_custom_followup_event
+	}
+	
+	after = { 
+		owner = { set_variable = wotd_mauritius_storm_encountered }
+	}
+}
+
+# Event 5: An Odd Flightless Bird # Dodo Chain
+wotd_flora_and_fauna.5 = {
+	type = exploration_event
+	title = wotd_flora_and_fauna.5.title
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { 
+					location = {
+						has_owner = no
+					}
+				}
+				desc = wotd_flora_and_fauna.5.desc
+			}
+			desc = wotd_flora_and_fauna.5.desc.colonized
+		}
+	}
+	hide_portraits = yes
+	image = "gfx/interface/illustrations/event/backgrounds/wotd/dodo.dds"
+
+	trigger = {
+		leader ?= {
+			is_alive = yes
+		}
+	}
+
+	immediate = {
+		leader = { save_scope_as = explorer }
+		owner = { save_scope_as = discovery_country }
+	}
+
+	option = { # End thus it must taste great!
+		name = wotd_flora_and_fauna.5.a
+		custom_tooltip = wotd_flora_and_fauna.5.a.tt
+
+		trigger_event_silently = {
+			id = wotd_flora_and_fauna.6
+			days = 5
+		}
+		custom_tooltip = wotd_custom_followup_event
+	}
+	option = { # Kill them! How dare they befoul our helmets!
+		name = wotd_flora_and_fauna.5.b
+
+		custom_tooltip = wotd_flora_and_fauna.5.b.tt
+		trigger_event_silently = {
+			id = wotd_flora_and_fauna.7
+			days = 5
+		}
+		custom_tooltip = wotd_custom_followup_event
+	}
+	option = { # Take some specimens back home
+		name = wotd_flora_and_fauna.5.c
+		trigger_event_silently = {
+			id = wotd_flora_and_fauna.8
+			years = 1
+		}
+		custom_tooltip = wotd_custom_followup_event
+	}
+	option = { # Leave the birds alone
+		name = wotd_flora_and_fauna.5.d
+		trigger_event_silently = {
+			id = wotd_flora_and_fauna.10
+			days = 5
+		}
+		custom_tooltip = wotd_custom_followup_event
+	}
+	after = {
+		owner = { save_scope_as = discovery_country }
+		every_country = {
+			limit = {
+				is_ai = no
+				NOT = { has_global_variable = wotd_discovered_dodo }
+			}
+			trigger_event_silently = { 
+				id = wotd_flora_and_fauna.11
+				years = { 100 200}
+				#days = 30
+			}
+		}
+		set_global_variable = wotd_discovered_dodo
+	}
+}
+
+# Event 6: Hunting for Dodos # Dodo Chain
+wotd_flora_and_fauna.6 = {
+	type = exploration_event
+	title = wotd_flora_and_fauna.6.title
+	desc = wotd_flora_and_fauna.6.desc
+	hide_portraits = yes
+	image = "gfx/interface/illustrations/event/backgrounds/wotd/dodo.dds"
+
+	immediate = {
+		leader = { save_scope_as = explorer }
+	}
+
+	option = {
+		name = wotd_flora_and_fauna.6.a
+		trigger_event_silently = {
+			id = wotd_flora_and_fauna.9
+			days = 3
+		}
+		custom_tooltip = wotd_custom_followup_event
+	}
+}
+
+# Event 7: End of the Dodo # Dodo Chain
+wotd_flora_and_fauna.7 = {
+	type = exploration_event
+	title = wotd_flora_and_fauna.7.title
+	desc = wotd_flora_and_fauna.7.desc
+	hide_portraits = yes
+	image = "gfx/interface/illustrations/event/backgrounds/wotd/end_of_dodos.dds"
+
+	immediate = {
+		leader = { save_scope_as = explorer }
+	}
+
+	option = {
+		name = wotd_flora_and_fauna.7.a
+		owner = { add_gold = 10 }
+		province_definition:mascarene_islands_province = {
+			every_location_in_province_definition = {
+				add_location_modifier = {
+    				modifier = wotd_dodo_extinct_modifier
+    				years = -1
+				}
+			}
+		}
+	}
+}
+
+# Event 8: Dodo and the Unicorn # Dodo Chain
+wotd_flora_and_fauna.8 = {
+	type = exploration_event
+	title = wotd_flora_and_fauna.8.title
+	desc = wotd_flora_and_fauna.8.desc
+	hide_portraits = yes
+	image = "gfx/interface/illustrations/event/backgrounds/wotd/dodo.dds"
+
+	immediate = {
+		leader = { save_scope_as = explorer }
+	}
+
+	option = {
+		name = wotd_flora_and_fauna.8.a
+		owner = {
+			add_country_modifier = { modifier = wotd_exotic_menagerie_modifier years = 3 }
+		}
+	}
+}
+
+# Event 9: Horrible Taste # Dodo Chain
+wotd_flora_and_fauna.9 = {
+	type = exploration_event
+	title = wotd_flora_and_fauna.9.title
+	desc = wotd_flora_and_fauna.9.desc
+	hide_portraits = yes
+	image = "gfx/interface/illustrations/event/backgrounds/wotd/dodo.dds"
+
+	immediate = {
+		leader = { save_scope_as = explorer }
+	}
+
+	option = {
+		name = wotd_flora_and_fauna.9.a
+		# Useless bird, forget about it
+	}
+	option = {
+		name = wotd_flora_and_fauna.9.b
+		random = {
+			chance = 50
+			owner = {
+				add_country_modifier = { modifier = wotd_exotic_menagerie_modifier years = 3 }
+			}
+		}
+	}
+}
+# Event 10: A Quiet End # Dodo Chain
+wotd_flora_and_fauna.10 = { 
+	type = exploration_event
+	title = wotd_flora_and_fauna.10.title
+	desc = wotd_flora_and_fauna.10.desc
+	hide_portraits = yes
+	image = "gfx/interface/illustrations/event/backgrounds/wotd/dodo.dds"
+
+	option = {
+		name = wotd_flora_and_fauna.10.a
+		# A quiet end for a quiet creature.
+	}
+}
+
+
+# Event 11: The Way of the Dodo #Fires after 100-200 years to all players, if anyone discovered the dodo first  # Dodo Chain
+wotd_flora_and_fauna.11 = {
+	type = country_event
+	title = wotd_flora_and_fauna.11.title
+	desc = wotd_flora_and_fauna.11.desc
+	hide_portraits = yes
+	image = "gfx/interface/illustrations/event/backgrounds/wotd/end_of_dodos.dds"
+
+	immediate = {
+		province_definition:mascarene_islands_province = {
+			save_scope_as = mauritius
+		}
+	}
+
+	option = {
+		name = wotd_flora_and_fauna.11.a
+		province_definition:mascarene_islands_province = {
+			every_province_in_province_definition = {
+				add_province_modifier = {
+    				modifier = wotd_dodo_extinct_modifier
+    				years = -1
+				}
+			}
+		}
+	}
+}
+
+# Event 12: Swimming Jackasses
+wotd_flora_and_fauna.12 = {
+	type = exploration_event
+	title = wotd_flora_and_fauna.12.title
+	desc = wotd_flora_and_fauna.12.desc
+	hide_portraits = yes
+	image = "gfx/interface/illustrations/event/backgrounds/wotd/african_penguins.dds"
+
+	trigger = {
+		exploration_progress > 0.05
+		leader ?= {
+			is_alive = yes
+		}
+		owner = { NOT = { has_variable = wotd_discovered_african_penguins } }
+		location = {
+			OR = {
+				area = area:southern_africa_coast_area
+				area = area:karoo_coast_area
+			}
+		}
+		area = { is_area_sea = yes }
+	}
+
+	immediate = {
+		leader = { save_scope_as = explorer }
+		owner = { save_scope_as = target_root_country }
+	}
+
+	option = {
+		name = wotd_flora_and_fauna.12.a
+		scope:target_root_country = { add_gold = -500 }
+		area:goringhaikona_area = {
+			every_province_definition_in_area = {
+				scope:target_root_country = {
+					add_colonial_claim = {
+						province_definition = prev
+						reason = wotd_flora_and_fauna.12.a.claim.tt
+						category = same_religion
+					}
+				}
+			}
+			random_province_definition_in_area = {
+				limit = {
+					any_location_in_province_definition = { is_coastal = yes }
+				}
+				scope:target_root_country = {
+					random_province = {
+						save_scope_as = origin
+					}
+					create_colonial_charter = {
+						source = scope:origin
+						target = prev
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = wotd_flora_and_fauna.12.b
+		owner = {
+			add_gold = 50
+			add_country_modifier = { modifier = wotd_exotic_penguins_modifier years = 2 }
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+
+	option = {
+		name = wotd_flora_and_fauna.12.c
+		trigger = {
+			owner = {
+				any_cabinet_character = {
+					is_artist = yes
+				}
+			}
+		}
+		owner = {
+			ruler ?= {
+				add_adm = 5
+				add_dip = 10
+			}
+		}
+	}
+	after = { 
+		owner = { set_variable = wotd_discovered_african_penguins }
+	}
+}
+
+#Event 13: Cook Lost in the Jungle # Colony Only Event
+wotd_flora_and_fauna.13 = {
+	type = exploration_event
+	title = wotd_flora_and_fauna.13.title
+	desc = wotd_flora_and_fauna.13.desc
+	hide_portraits = yes
+	image = "gfx/interface/illustrations/event/backgrounds/wotd/orangutan.dds"
+
+	trigger = {
+		exploration_progress > 0.05
+		leader ?= {
+			is_alive = yes
+		}
+		owner = { NOT = { has_variable = wotd_discovered_orangutan } }
+		location = {
+			region = region:indonesia_region
+			any_nomad_countries_in_location = {
+				count > 0
+			}
+		}
+	}
+
+	immediate = {
+		leader = { save_scope_as = explorer }
+		location = { save_scope_as = province }
+	}
+
+	option = {
+		name = wotd_flora_and_fauna.13.a
+		location = {
+			random_nomad_countries_in_location = {
+				save_scope_as = tribal_nation
+			}
+		}
+		change_exploration_progress = {
+			value = exploration_time
+			multiply = 0.02
+		}
+		scope:tribal_nation = {	add_opinion = { target = owner modifier = angry_natives } }
+	}
+
+	option = {
+		name = wotd_flora_and_fauna.13.b
+		trigger = {
+			owner = {
+				culture = culture:low_franconian
+			}
+		}
+		owner = {
+			create_character = {
+				first_name = name_james
+				last_name = "Bontius"
+				birth_location = location:breda
+				estate = estate_type:burghers_estate
+				adm = { 50 70 }
+				artist_skill = 0.90
+				culture = culture:low_franconian
+				
+				artist_skill = { 0.7 0.85 }
+				artist = scientist
+				save_scope_as = target_character
+				create_in_limbo = yes
+			}
+		}
+	}
+	option = {
+		name = wotd_flora_and_fauna.13.c
+		random_list = {
+			40 = {
+				location = {
+					random_nomad_countries_in_location = {
+						save_scope_as = tribal_nation
+					}
+				}
+				scope:tribal_nation = {	add_opinion = { target = owner modifier = angry_natives } }
+			}
+			50 = {
+				change_exploration_progress = {
+					value = exploration_progress
+					multiply = 0.15
+				}
+				scope:explorer = {
+					add_character_modifier = { modifier = injured years = 1 }
+					add_character_modifier = { modifier = wotd_rescued_cook_modifier years = 5 }
+				}
+			}
+			10 = {
+				change_exploration_progress = {
+					value = exploration_progress
+					multiply = -0.35
+				}
+				random_list = {
+					50 = {
+						scope:explorer = {
+							add_character_modifier = { modifier = gravely_injured years = 1}
+						}
+					}
+					50 = {
+						scope:explorer = {
+							kill_character = {
+								reason = wild_animal
+								target = this
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	after = { 
+		owner = { set_variable = wotd_discovered_orangutan }
+	}
+}
+
+# Event 14: Stinkbird Hoatzin
+wotd_flora_and_fauna.14 = {
+	type = exploration_event
+	title = wotd_flora_and_fauna.14.title
+	desc = wotd_flora_and_fauna.14.desc
+	hide_portraits = yes
+	image = "gfx/interface/illustrations/event/backgrounds/wotd/hoatzin.dds"
+
+	trigger = {
+		exploration_progress > 0.05
+		leader ?= {
+			is_alive = yes
+		}
+		owner = { NOT = { has_variable = wotd_discovered_hoatzin } }
+		location = {
+			area = area:amazon_area
+		}
+	}
+
+	immediate = {
+		leader = { save_scope_as = explorer }
+	}
+
+	option = {
+		name = wotd_flora_and_fauna.14.a
+		change_exploration_progress = {
+			value = exploration_time
+			multiply = -0.05
+		}
+		scope:explorer = {
+			add_character_modifier = { modifier = wotd_disgusted_explorer_modifier years = 1 }
+		}
+	}
+
+	after = { 
+		owner = { set_variable = wotd_discovered_hoatzin }
+	}
+}
+
+# # wotd_flora_and_fauna.15 & 16 reserved for both China specific and Europe specific Giant Panda events.
+
+
+# # Event 17: A Painter's Passing Fancy?
+wotd_flora_and_fauna.17 = {
+	type = exploration_event
+	title = wotd_flora_and_fauna.17.title
+	desc = wotd_flora_and_fauna.17.desc
+	hide_portraits = yes
+	image = "gfx/interface/illustrations/event/backgrounds/wotd/ocelot.dds"
+
+	trigger = {
+		exploration_progress > 0.05
+		leader ?= {
+			is_alive = yes
+		}
+		owner = { NOT = { has_variable = wotd_discovered_ocelot } }
+		location = {
+			region = region:central_america_region
+		}
+	}
+
+	immediate = {
+		leader = { save_scope_as = explorer }
+		owner = {
+			random_courtier = {
+				limit = {
+					is_artist = yes
+					artist_type = painter
+				}
+				save_scope_as = painter_artist
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					owner = {
+						any_courtier = {
+							is_artist = yes
+							artist_type = painter
+						}
+					}
+				}
+			}
+			owner = {
+				create_character = {
+					estate = estate_type:burghers_estate
+					adm = { 30 50 }
+					artist_skill = { 0.5 0.7 }
+					artist = painter
+					save_scope_as = painter_artist
+				}
+			}
+		}
+	}
+
+	option = {
+		name = wotd_flora_and_fauna.17.a
+		scope:painter_artist ?= { 
+			add_character_modifier = { modifier = wotd_ocelot_companion_modifier years = 5 } 
+			add_artist_skill = 0.10
+		}
+	}
+	option = {
+		name = wotd_flora_and_fauna.17.b
+		owner = { add_gold = 15 }
+	}
+
+	after = { 
+		owner = { set_variable = wotd_discovered_ocelot }
+	}
+}

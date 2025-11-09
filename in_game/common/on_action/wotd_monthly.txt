@@ -1,0 +1,44 @@
+﻿colonial_charter_monthly_pulse = {
+	on_actions = {
+		#wotd_colonial_charter_monthly
+	}
+}
+
+on_exploration_monthly_pulse = {
+	on_actions = {
+		delay = { days = { 10 15 } }
+		wotd_exploration_monthly
+	}
+}
+
+# Events that might fire while a colony is building
+# wotd_colonial_charter_monthly = {
+# 	random_events = {
+# 		1 = wotd_flora_and_fauna.1
+		
+# 		chance_to_happen = 100
+# 		chance_of_no_event = {
+# 			value = 50
+# 		}
+# 	}
+# }
+
+# Events that might fire during exploration
+
+wotd_exploration_monthly = {
+	random_events = {
+		1 = wotd_flora_and_fauna.1 # Kakapo
+		1 = wotd_flora_and_fauna.2 # Stellar Sea Cow
+		#1 = wotd_flora_and_fauna.3 # Man-Sized Salamanders
+		1 = wotd_flora_and_fauna.4 # A Rising Storm, Dodo Chain until .11
+		1 = wotd_flora_and_fauna.12 # African Penguin
+		1 = wotd_flora_and_fauna.13 # Orangutan
+		1 = wotd_flora_and_fauna.14 # Hoatzin
+		1 = wotd_flora_and_fauna.17 # Ocelot
+
+		chance_to_happen = 2
+		chance_of_no_event = {
+			value = 10
+		}
+	}
+}

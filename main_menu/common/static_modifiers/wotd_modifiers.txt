@@ -1,0 +1,73 @@
+﻿wotd_mermaid_skeleton_modifier = {
+	game_data = {
+		category = country
+		decaying = yes
+	}
+
+	rural_migration_attraction = 0.5
+	monthly_gold_income = 0.5
+}
+
+wotd_sea_whale_meat_modifier = {
+	game_data = {
+		category = country
+		decaying = yes
+	}
+
+	exploration_maintenance_cost = -0.2
+}
+
+wotd_exotic_menagerie_modifier = {
+	game_data = {
+		category = country
+		decaying = yes
+	}
+	rural_migration_attraction = 0.5
+	monthly_prestige = 0.05
+	monthly_gold_income = 2
+}
+
+wotd_dodo_extinct_modifier = {
+	game_data = {
+		category = location
+	}
+
+	local_monthly_food_modifier = -0.75
+}
+
+wotd_exotic_penguins_modifier = {
+	game_data = {
+		category = country
+		decaying = yes
+	}
+
+	rural_migration_attraction = 0.5
+	monthly_prestige = 0.05
+	monthly_gold_income = 2
+}
+
+wotd_rescued_cook_modifier = {
+	game_data = {
+		category = character
+	}
+	exploration_mission_speed = 0.10
+}
+
+wotd_disgusted_explorer_modifier = {
+	game_data = {
+		category = character
+		decaying = yes
+	}
+	exploration_mission_speed = -0.10
+}
+
+wotd_ocelot_companion_modifier = {
+	game_data = {
+		category = character
+		decaying = yes
+	}
+	artist_salary_modifier = 0.5
+	artist_salary_modifier_on_character = 0.5
+	work_of_art_quality_modifier = 0.55
+	artist_monthly_start_chance = 0.25
+}

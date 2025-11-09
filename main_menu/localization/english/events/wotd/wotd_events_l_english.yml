@@ -1,0 +1,118 @@
+﻿l_english:
+ wotd_flora_and_fauna.1.title: "Shagged by a Kakapo"
+ wotd_flora_and_fauna.1.desc: "While exploring the Fjords along the coast of [ROOT.GetExploration.GetLocation.GetName], [explorer.GetName] decides to venture inland to try trade and, or scavenge for supplies. While making their way through the forest at night, one of the crew members is attacked by a large green parrot-like bird. The bird seems to have mistaken the crew member for a possible mate, probably due to his green cap. The loud screeching and booming calls are heard across the forest, with the man seeming in quite a bit of pain and disarray. \n\nOne of the guides informs you that the bird is prized by locals for its delicious meat and warm coat. As the saying goes: “Only those who're never satisfied will complain of cold when wearing a Kakapo coat."
+ wotd_flora_and_fauna.1.a: "Just save that poor man from that bird already!"
+ wotd_flora_and_fauna.1.a.tt: "#italic The bird continues it's attempt to mate with the crew member#!."
+ wotd_flora_and_fauna.1.b: "Catch it! We can trade it for favors with the natives."
+ wotd_flora_and_fauna.1.c: "Make him our Ship’s Parrot! Hope it behaves."
+
+ wotd_flora_and_fauna.2.title: "Sea Cows Ahoy!"
+ wotd_flora_and_fauna.2.desc: "The cold northern winds of [ROOT.GetExploration.GetLocation.GetName] have worn down your crew, and [explorer.GetName] himself went to rest after claiming to see moving rocks along the coast—until Mr. Steller, your barrelman, shouted: Whales!\n\nInstead of whales, the creatures proved to be great sea cows grazing in the shallows. Hungry and restless, the crew launched their boats and began the hunt.\n\nAfter a long struggle, they finally brought down a massive bull nearly nine meters long. Its meat tastes like corned beef and keeps well, while its white bones are hard as steel.\nBut what to do with the rest of the herd?"
+ wotd_flora_and_fauna.2.a: "Move on, there is more to explore!"
+ wotd_flora_and_fauna.2.b: "Drop anchor to stock up on meat for the long journey."
+ wotd_flora_and_fauna.2.c: "Sell the 'Mermaid Skeleton' to a foreign court."
+ wotd_flora_and_fauna.2.d: "Cows, you say? Do they make a nice cheese?"
+ STATIC_MODIFIER_NAME_wotd_mermaid_skeleton_modifier: "A 'Mermaid Skeleton'"
+ STATIC_MODIFIER_DESC_wotd_mermaid_skeleton_modifier: "Sold by Faraway Explorers, this oddity is said to be the remains of a mermaid. It attracts curious nobles and merchants, but its authenticity is questionable."
+ STATIC_MODIFIER_NAME_wotd_sea_whale_meat_modifier: "Influx of Sea Whale Meat"
+ STATIC_MODIFIER_DESC_wotd_sea_whale_meat_modifier: "Beloved by sailors and built for the long haul, this fatty meat travels well—and costs little to hunt compared to homebound resupply."
+
+ wotd_flora_and_fauna.3.title: "Man-Sized Salamanders"
+ wotd_flora_and_fauna.3.desc: "Giant Salamanders, known to the Japanese as 'Oshanshouo' or 'Giant Pepperfish', inhabit the clear creeks and rivers within our dominion. They are often called the 'Crying Children of the Mountain' for the strange, childlike cries they make at night. When threatened, they release a strong peppery scent that carries even through the water. Revered for their longevity, they bear the marks of age, their bodies covered in deep folds and wrinkles.\n\nIn Japanese folklore, the Kappa, a mischievous yokai spirit, is said to have been inspired by this creature. Yet unlike its mythological namesake, it does not seek to drag the unwary beneath the water, and our children have nothing to fear."
+ wotd_flora_and_fauna.3.desc.european: "While exploring the islands of [ROOT.GetExploration.GetLocation.GetName], our party came across strange creatures inhabiting the mountain streams. At first mistaken for lizards, they proved to be massive salamanders nearly the length of a man. The locals call them 'Oshanshouo', or 'Giant Pepperfish', and say their cries resemble those of lost children.\n\nWhen disturbed, they emit a strong peppery scent that carries through the water. The villagers revere them, claiming their flesh and organs possess medicinal properties and link them to the Kappa spirits of their myths. Whether superstition or truth, they are a most remarkable find."
+ wotd_flora_and_fauna.3.a: "Harvest them for their medicinal value."
+ wotd_flora_and_fauna.3.b: "Hold a small gathering to celebrate the Salamanders"
+ wotd_flora_and_fauna.3.c: "Preserve one specimen and send it to our court"
+
+ wotd_flora_and_fauna.4.title: "A Rising Storm"
+ wotd_flora_and_fauna.4.desc: "Dark clouds gather across the horizon, their shadows swallowing the sea ahead. The wind howls, and waves crash violently against the hull as the crew scrambles to secure the rigging. Our charts show no nearby ports, and the nearest known coast lies far beyond sight.\n\nWith thunder rolling closer, [explorer.GetName] must decide our course before the storm breaks."
+ wotd_flora_and_fauna.4.a: "Sail South."
+ wotd_flora_and_fauna.4.b: "Sail North."
+ wotd_flora_and_fauna.4.c: "Sail West."
+ wotd_flora_and_fauna.4.d: "Sail East."
+
+ wotd_flora_and_fauna.5.title: "An Odd Flightless Bird"
+ wotd_flora_and_fauna.5.desc: "After days adrift from the storm, the winds finally calm and a new island appears on the horizon. Grateful for the sight of land, [explorer.GetName]'s crew makes landfall to gather supplies and survey the shore. While exploring inland, they come across a strange bird unlike any we have seen before. It shows no fear of us, instead pecking curiously at our helmets and boots.\n\nThe creature stands twice the size of a swan, heavy and round-bodied, with wings too small for flight. Judging by its tame nature, it seems to live without predators—and the crew is already wondering what such a bird might taste like."
+ wotd_flora_and_fauna.5.desc.colonized:  "After days adrift from the storm, the winds finally calm and a new island appears on the horizon. Grateful for the sight of land, [explorer.GetName]'s crew makes landfall to gather supplies and survey the shore. The island encountered seems inhabited, though we cannot tell whether its people are friend or foe. For now, we hide our ship in a lagoon and wait. There might be some fruit growing nearby."
+ wotd_flora_and_fauna.5.a: "And thus it must taste great!"
+ wotd_flora_and_fauna.5.a.tt: "#Italics The crew is eager to try the bird's meat, believing it might be a delicacy.#!"
+ wotd_flora_and_fauna.5.b: "Kill them! How dare they befoul our helmets!"
+ 
+ wotd_flora_and_fauna.5.b.tt: "#warning What harm could killing a few of these idiot birds do? They are everywhere on this island..#!"
+ wotd_flora_and_fauna.5.c: "Take some specimens back home."
+ wotd_flora_and_fauna.5.d: "Leave the birds alone, I don’t care. Find some fruit and return to ship!"
+ wotd_flora_and_fauna.5.e: "Did I see a large bird?"
+
+ wotd_flora_and_fauna.6.title: "Hunting for Dodos"
+ wotd_flora_and_fauna.6.desc: "Our expedition under [explorer.GetName] reports that the strange birds of the island show no fear of man. Even after a few have been killed, the rest wander about as if nothing has happened. Their heavy bodies and short wings make them easy prey for anyone with a club or net.\n\n[explorer.GetFirstNameWithNoTooltip] writes that the crew now spends much of their time hunting the creatures, filling the beaches with the sound of laughter and feathers. How could they ever have survived this long?"
+ wotd_flora_and_fauna.6.a: "Can’t wait to cook ‘em."
+
+ wotd_flora_and_fauna.7.title: "End of the Dodo"
+ wotd_flora_and_fauna.7.desc: "[explorer.GetName] reports that the island’s strange birds are gone. The crew hunted them without restraint until none were left. The meat proved nearly inedible, its flavor bitter and foul. What once filled the island with noise is now only quiet beaches and scattered bones.\n\nThe crew called the birds 'Dodos' before the last one fell. Their name is all that remains of them. Well, That was the last of them."
+ wotd_flora_and_fauna.7.a: "Good riddance."
+
+ wotd_flora_and_fauna.8.title: "Dodo and the Unicorn"
+ wotd_flora_and_fauna.8.desc: "The bird, known by locals as the “Dodo,” has become a sensation. Alongside a so-called unicorn found nearby, it draws crowds from far and wide. Its calm nature makes it a charming pet, though its diet is strange. It refuses meat and most fruits."
+ wotd_flora_and_fauna.8.a: "Maybe it likes onions?"
+
+ wotd_flora_and_fauna.9.title: "Horrible Taste"
+ wotd_flora_and_fauna.9.desc: "[explorer.GetName] writes that curiosity got the better of the crew. Having roasted one of the strange island birds, they eagerly gathered around the pot, expecting a fine meal. When the stew was served, the smell alone drove several men back. Those who tasted it spat it out at once.\n\nThe flesh is said to be dry, fibrous, and impossibly foul. One sailor even claimed to see a few birds swallowing stones. You can’t help but think: perhaps the stone would have been better."
+ wotd_flora_and_fauna.9.a: "Useless bird, forget about it!"
+ wotd_flora_and_fauna.9.b: "Take some home with you, they do look cute."
+
+ wotd_flora_and_fauna.10.title: "Moving On"
+ wotd_flora_and_fauna.10.desc: "The crew leaves the strange birds undisturbed, turning their attention to the island’s fruit trees and streams. The stores are replenished, and spirits rise as preparations are made to depart.\n\nThe birds watch from the brush as the sails catch the wind, unaware they will one day be remembered only in stories."
+ wotd_flora_and_fauna.10.a: "There’s more to find beyond this island."
+
+ wotd_flora_and_fauna.11.title: "The Way of the Dodo"
+ wotd_flora_and_fauna.11.desc: "Travelers to [mauritius.GetName] once spoke of a strange, trusting bird that wandered without fear of man or predator. Now years after the discovery by [discovery_country.GetAdjective] [explorer.GetName], none remain. Settlers report that animals brought from abroad—dogs, pigs, and rats—destroyed their nests and young. Within a few generations, the Dodo was gone.\n\nWhat was once a curious sight for the first explorers has become a story told only by sailors and old maps. The bird now lives only in memory."
+ wotd_flora_and_fauna.11.a: "A quiet end for a quiet creature."
+
+ STATIC_MODIFIER_NAME_wotd_dodo_extinct_modifier: "Dodo Extinct"
+ STATIC_MODIFIER_DESC_wotd_dodo_extinct_modifier: "The Dodo, once native to this province, has gone extinct due to the introduction of invasive species and overhunting by settlers. Its absence has altered the local ecosystem."
+
+ STATIC_MODIFIER_NAME_wotd_exotic_menagerie_modifier: "Exotic Menagerie"
+ STATIC_MODIFIER_DESC_wotd_exotic_menagerie_modifier: "Your country has established an exotic menagerie, showcasing the strange odd Dodo from the far-off island of Mauritius. The menagerie draws curious nobles and merchants alike."
+
+
+
+ wotd_flora_and_fauna.12.title: "Swimming Jackasses"
+ wotd_flora_and_fauna.12.desc: "While sailing near [ROOT.GetExploration.GetLocation.GetName], [explorer.GetName] and crew were greeted by shoals of swimming birds. Flightless birds that have adapted themselves to a life on the ocean, hunting for the fish near our ship. Even though, they don't dare to come any closer, compared to the dolphins in the area, their cries can be heard from far far away. These have become so obnoxious, that the crew have started calling them jackass birds, due to their donkey-like brays. \n\nTheir eggs, however, can be collected all through the year, and are a delicacy. The birds are too nervous and won’t defend them, thus collecting them has been without a hitch. It might be wise to lay claims to the islands on which these birds gather."
+ wotd_flora_and_fauna.12.a: "Claim the islands." 
+ wotd_flora_and_fauna.12.a.claim.tt: "Claimed due to the presence of the penguins."
+ wotd_flora_and_fauna.12.b: "Take some back to our court, the children will like them." 
+ wotd_flora_and_fauna.12.c: "I have a new idea for a coat."
+
+ STATIC_MODIFIER_NAME_wotd_exotic_penguins_modifier: "Exotic Penguins"
+ STATIC_MODIFIER_DESC_wotd_exotic_penguins_modifier: "Your country has acquired a number of African Penguins from recent explorations. These unique birds have become a popular attraction among the nobility and scholars alike."
+
+ wotd_flora_and_fauna.13.title: "Cook Lost in the Jungle"
+ wotd_flora_and_fauna.13.desc: "The expedition through the lowland jungles of [ROOT.GetExploration.GetLocation.GetName] has been arduous, and now our cook has gone missing. The local guides claim she was taken by an Orangutan, or “person of the forest.” \n\nThese great apes live alone in the canopy, seldom seen but often heard. The tribes believe they can speak and that harming them brings ruin. [explorer.GetName] and crew are divided: some suspect foul play from the guides, others think the cook, fevered and lost, wandered off. \n\nA rival tribe has offered to help hunt the creature said to have taken her, though doing so might spark conflict among the locals."
+ wotd_flora_and_fauna.13.a: "Blame the natives for her disappearance."
+ wotd_flora_and_fauna.13.b: "Perhaps madness from a tropical disease."
+ wotd_flora_and_fauna.13.c: "Hunt the 'People of the Forest'."
+
+ STATIC_MODIFIER_NAME_wotd_rescued_cook_modifier: "Rescued Cook"
+ STATIC_MODIFIER_DESC_wotd_rescued_cook_modifier: "The cook rescued from the jungle has become an invaluable member of the crew, known for her resourcefulness and culinary skills. Her experiences have enriched the expedition's provisions and morale."
+
+
+ wotd_flora_and_fauna.14.title: "Stinkbird Hoatzin"
+ wotd_flora_and_fauna.14.desc: "This bizarrely shaped bird of striking color pays little attention to [explorer.GetName]'s exploration party. At times it is difficult to scare away, especially at night. The crew decided to kill some and add them to the stew, but to their dismay, the meat is unsuitable for consumption. Even cooked, it retains a manure-like stench, and after multiple attempts at recipes, the party has given up all hope of enjoying this foul bird.\n\nPerhaps its stench comes from its plant-based diet?"
+ wotd_flora_and_fauna.14.a: "Bugger."
+
+ STATIC_MODIFIER_NAME_wotd_disgusted_explorer_modifier: "Disgusted Explorer"
+ STATIC_MODIFIER_DESC_wotd_disgusted_explorer_modifier: "The explorer has become increasingly disillusioned with the expedition, particularly after the failed attempts to cook the Hoatzin. Their morale is low, and they are less effective in their duties."
+
+ wotd_flora_and_fauna.17.title: "A Painter’s Passing Fancy?"
+ wotd_flora_and_fauna.17.desc: "For years, one of our court painters, [painter_artist.GetName], begged to join the explorer [explorer.GetName] in [ROOT.GetExploration.GetName], funded by the crown, to improve his craft. Known for his adventurous, some might say reckless, spirit, we finally allowed it—if only to silence his pleas. In the jungles, he found a creature that seized his imagination. His journal reads:\n\n'Look at his little spots, those tufted ears. The pattern of stripes and smudges seems painted in haste as he ran. The locals and our men alike adore him. One even ate from my hand. The captain forbids it, but I cannot resist. I have named him Babou.'\n\n[painter_artist.GetFirstNameForEditbox] was later caught trying to bring Babou aboard. The captain demands the creature be left behind, or sold."
+ wotd_flora_and_fauna.17.a: "Allow Babou, the Ocelot, to return home with the painter."
+ wotd_flora_and_fauna.17.b: "Sell it off. Captain’s orders."
+
+ STATIC_MODIFIER_NAME_wotd_ocelot_companion_modifier: "Ocelot Companion"
+ STATIC_MODIFIER_DESC_wotd_ocelot_companion_modifier: "This artist has formed a bond with an ocelot named Babou, who accompanies them on their journeys."
+
+ # Way of the Dodo Special Tooltip
+ wotd_custom_followup_event: "In choosing this option, [ROOT.GetExploration.GetOwner.GetName] will get a follow-up [event|e]:
+
+
+
