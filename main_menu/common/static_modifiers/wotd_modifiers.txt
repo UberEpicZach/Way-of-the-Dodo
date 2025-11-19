@@ -71,3 +71,29 @@ wotd_ocelot_companion_modifier = {
 	work_of_art_quality_modifier = 0.55
 	artist_monthly_start_chance = 0.25
 }
+
+wotd_beaver_reintroduction_modifier = {
+    game_data = {
+        category = country
+    }
+    
+    # Direct beaver/fur benefits (similar to iro_trading_of_furs)
+    global_fur_output_modifier = 0.15
+    
+    # Environmental benefits (beavers create wetlands, improve water management)
+    global_monthly_food_modifier = 0.05
+    global_fish_output_modifier = 0.1
+    
+    # Possible cost/challenge
+    monthly_gold_expense = 2
+}
+
+wotd_focusing_on_the_classics_modifier = {
+    game_data = {
+        category = country
+        decaying = yes
+    }
+    
+    research_speed_modifier = 0.08
+    global_monthly_literacy = 0.05
+}
