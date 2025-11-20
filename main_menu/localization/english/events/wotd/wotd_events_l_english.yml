@@ -120,12 +120,12 @@
  wotd_flora_and_fauna.23.b: "Attempt to drive the eagle away and save the Moa"
  STATIC_MODIFIER_NAME_wotd_moa_science_modifier: "Moa Field Observations"
  STATIC_MODIFIER_DESC_wotd_moa_science_modifier: "Careful observation of the Moa and its interactions with predators has given our court new practical knowledge about the creature's habits and the conditions of the inland regions."
+ wotd_moa_hunt_success_desc: "[explorer.GetName] intervines in the hunt, successfully driving away the Haast eagle and saving the Moa."
+ wotd_moa_hunt_fail_desc: "[explorer.GetName] intervines, altough the Haast eagle succeeds in its hunt, killing the Moa, and injuring [explorer.GetName] in the process."
 
  brave_explorer: "Brave Explorer"
  desc_brave_explorer: "This explorer is renowned for their fearless spirit and adventurous nature, often venturing into uncharted territories and facing dangers head-on."
  brave_explorer_die_desc: "[CHARACTER.GetHerHis|U] name will live in the many shores, forests, jungles and mountains [CHARACTER.GetSheHe] bravely ventured."
- wotd_moa_hunt_success_desc: "[explorer.GetName] interviened in the hunt, successfully driving away the Haast eagle and saving the Moa."
- wotd_moa_hunt_fail_desc: "Despite [explorer.GetName]'s efforts, the Haast eagle succeeded in its hunt, killing the Moa, and injuring [explorer.GetName] in the process."
  
 
  wotd_flora_and_fauna.27.title: "Test"

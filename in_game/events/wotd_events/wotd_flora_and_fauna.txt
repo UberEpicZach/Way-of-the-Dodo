@@ -1144,15 +1144,20 @@ wotd_flora_and_fauna.23 = {
 			
 			30 = {
 				custom_tooltip = wotd_moa_hunt_fail_desc
-				random_list = {
-					10 = {
-						scope:explorer = { add_character_modifier = { modifier = injured months = 5 mode = add_and_extend } }
-					}
-					8 = {
-						scope:explorer = { add_character_modifier = { modifier = severely_injured months = 9 mode = add_and_extend } }
-					}
-					5 = {
-						scope:explorer = { add_character_modifier = { modifier = gravely_injured months = 13 mode = add_and_extend } }
+				show_as_tooltip = {
+					scope:explorer = { add_character_modifier = { modifier = injured months = 3 mode = add_and_extend } }
+				}
+				hidden_effect = {
+					random_list = {
+						10 = {
+							scope:explorer = { add_character_modifier = { modifier = injured months = 5 mode = add_and_extend } }
+						}
+						8 = {
+							scope:explorer = { add_character_modifier = { modifier = severely_injured months = 9 mode = add_and_extend } }
+						}
+						5 = {
+							scope:explorer = { add_character_modifier = { modifier = gravely_injured months = 13 mode = add_and_extend } }
+						}
 					}
 				}
 			}
