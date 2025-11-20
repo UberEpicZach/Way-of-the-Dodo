@@ -116,11 +116,24 @@
 
  wotd_flora_and_fauna.23.title: "Predator and Prey"
  wotd_flora_and_fauna.23.desc: "The crew presses inland, following narrow tracks described by the villagers. The forest rises in long slopes, broken by clearings where the soil is turned and shrubs bent under the weight of something large.\n\nIn a quiet hollow of the next valley, a Moa feeds, tall and broad-backed, absorbed in the shrubs. Before the cartographers can sketch it, a shadow sweeps across the clearing. A great eagle strikes the Moa, sending feathers into the air. The struggle is violent but controlled.\n\n[explorer.GetName] signals the crew to remain still. The villagers had spoken of this giant bird of prey, but seeing it confirms the danger these inland valleys hold. How the expedition responds will determine whether it is recorded in detail or remembered as a warning."
-
-
  wotd_flora_and_fauna.23.a: "Observe the hunt and record the details"
  wotd_flora_and_fauna.23.b: "Attempt to drive the eagle away and save the Moa"
+ STATIC_MODIFIER_NAME_wotd_moa_science_modifier: "Moa Field Observations"
+ STATIC_MODIFIER_DESC_wotd_moa_science_modifier: "Careful observation of the Moa and its interactions with predators has given our court new practical knowledge about the creature's habits and the conditions of the inland regions."
 
+ brave_explorer: "Brave Explorer"
+ desc_brave_explorer: "This explorer is renowned for their fearless spirit and adventurous nature, often venturing into uncharted territories and facing dangers head-on."
+ brave_explorer_die_desc: "[CHARACTER.GetHerHis|U] name will live in the many shores, forests, jungles and mountains [CHARACTER.GetSheHe] bravely ventured."
+ wotd_moa_hunt_success_desc: "[explorer.GetName] interviened in the hunt, successfully driving away the Haast eagle and saving the Moa."
+ wotd_moa_hunt_fail_desc: "Despite [explorer.GetName]'s efforts, the Haast eagle succeeded in its hunt, killing the Moa, and injuring [explorer.GetName] in the process."
+ 
+
+ wotd_flora_and_fauna.27.title: "Test"
+ wotd_flora_and_fauna.27.desc: "Test event description."
+ wotd_flora_and_fauna.27.a: "Option A"
+ wotd_flora_and_fauna.27.b: "Option B"
+ wotd_you_saved_a_beaver: "You save the animal"
+ wotd_you_saved_a_beaver_2: "You didn't save the animal"
 
 
 

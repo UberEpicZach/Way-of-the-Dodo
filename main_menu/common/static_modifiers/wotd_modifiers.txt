@@ -97,3 +97,10 @@ wotd_focusing_on_the_classics_modifier = {
     research_speed_modifier = 0.08
     global_monthly_literacy = 0.05
 }
+
+wotd_moa_science_modifier = {
+	game_data = {
+		category = country
+	}
+	research_speed_modifier = 0.08
+}

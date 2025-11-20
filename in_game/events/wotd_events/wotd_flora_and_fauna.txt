@@ -1116,14 +1116,47 @@ wotd_flora_and_fauna.23 = {
 
 	option = {
 		name = wotd_flora_and_fauna.23.a
-		# We're just here to resupply. We'll embark at sunset.
-		#owner = {}
+		# "Observe the hunt and record the details"
+		owner = { 
+			add_country_modifier = { modifier = wotd_moa_science_modifier years = 3 }
+		}
+		scope:explorer = {
+			random = {
+				chance = 30 
+				add_trait = trait:scientist_on_sea
+			}
+		}
 	}
 
 	option = {
 		name = wotd_flora_and_fauna.23.b
-		#Giants birds you say?
-		custom_tooltip = wotd_custom_followup_event
+		# "Attempt to drive the eagle away and save the Moa"
+		scope:explorer = {
+			add_trait = trait:brave_explorer
+		}
+		random_list = {
+			60 = {
+				custom_tooltip = wotd_moa_hunt_success_desc
+				owner = {
+					add_country_modifier = { modifier = wotd_exotic_menagerie_modifier years = 3 mode = add_and_extend }
+				}
+			}
+			
+			30 = {
+				custom_tooltip = wotd_moa_hunt_fail_desc
+				random_list = {
+					10 = {
+						scope:explorer = { add_character_modifier = { modifier = injured months = 5 mode = add_and_extend } }
+					}
+					8 = {
+						scope:explorer = { add_character_modifier = { modifier = severely_injured months = 9 mode = add_and_extend } }
+					}
+					5 = {
+						scope:explorer = { add_character_modifier = { modifier = gravely_injured months = 13 mode = add_and_extend } }
+					}
+				}
+			}
+		}
 	}
 
 	after = { 
@@ -1147,8 +1180,8 @@ wotd_flora_and_fauna.24 = {
 		owner = { NOT = { has_variable = wotd_discovered_borneo_pygmy_elephant } }
 		location = {
 			OR = {
-				region = region:north_borneo_area
-				region = region:south_borneo_area
+				area = area:north_borneo_area
+				area = area:south_borneo_area
 			}
 		}
 
@@ -1233,7 +1266,7 @@ wotd_flora_and_fauna.25 = {
 				region = region:north_german_region
 				region = region:great_britain_region
 				region = region:ireland_region
-				region = region:iberian_region	
+				region = region:iberia_region	
 			}
 		}
 		location = {
@@ -1289,7 +1322,7 @@ wotd_flora_and_fauna.26 = {
 				region = region:north_german_region
 				region = region:great_britain_region
 				region = region:ireland_region
-				region = region:iberian_region	
+				region = region:iberia_region	
 			}
 			any_owned_location = {
 				has_institution = institution:renaissance

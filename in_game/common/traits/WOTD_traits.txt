@@ -1,0 +1,8 @@
+﻿brave_explorer = {
+	category = explorer
+	
+	modifier = {
+		exploration_mission_speed = 0.25
+		character_life_expectancy = 15
+	}
+}
