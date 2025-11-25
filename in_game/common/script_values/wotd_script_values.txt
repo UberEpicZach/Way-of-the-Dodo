@@ -1,0 +1,3 @@
+﻿wotd_peril_small_value = 1
+wotd_peril_medium_value = 3
+wotd_peril_large_value = 5

@@ -1,0 +1,45 @@
+﻿# # # scope:actor = country, scope:recipient = country
+# INJECT:start_exploration = {
+# 	price = {
+# 		# Spain override
+# 		if = {
+# 			limit = {
+# 				scope:actor = { this = c:SPA }
+# 			}
+
+# 			# Spain land exploration
+# 			if = {
+# 				limit = {
+# 					exists = scope:target
+# 					scope:target = {
+# 						adjacent_to_owned_or_owned_by_subject = scope:actor
+# 						is_area_sea = no
+# 					}
+# 				}
+# 				value = price:WOTD_start_exploration_land
+# 			}
+
+# 			# Spain sea exploration
+# 			else = {
+# 				value = price:WOTD_start_exploration_sea
+# 			}
+# 		}
+
+# 		# Normal logic
+# 		else_if = {
+# 			limit = {
+# 				exists = scope:target
+# 				scope:target = {
+# 					adjacent_to_owned_or_owned_by_subject = scope:actor
+# 					is_area_sea = no
+# 				}
+# 			}
+# 			value = price:start_exploration_land
+# 		}
+
+# 		else = {
+# 			value = price:start_exploration_sea
+# 		}
+# 	}
+	
+# }

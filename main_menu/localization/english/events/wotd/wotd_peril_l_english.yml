@@ -1,0 +1,15 @@
+﻿l_english:
+ game_concept_exploration_peril_gc:"Exploration Peril"
+ game_concept_exploration_peril_gc_desc:0 "The more perilous an [exploration|e] is, the greater the chance of failure. High peril can lead to disastrous outcomes for your explorers and their mission."
+ WOTD_peril_loc_low:0 "Exploration Peril: Low"
+ WOTD_peril_loc_moderate:0 "Exploration Peril: Moderate"
+ WOTD_peril_loc_high:0 "Exploration Peril: High"
+ WOTD_peril_loc_very_high:0 "Exploration Peril: Doomed!"
+
+ exploration_event_increase_peril_tt:0 "This will #negative_value negatively #!affect the outcome of the exploration."
+ exploration_event_decreasing_peril_tt:1 "This will #positive_value reduce #!the current peril of the exploration."
+
+ exploration_gain_peril_tt:0 "The exploration gains #negative_value [exploration_peril_gc|e] [THIS.GetVariable('wotd_peril_delta').GetValue|-=0]#!:"
+ exploration_lose_peril_tt:0 "The exploration loses #positive_value [exploration_peril_gc|e] -[THIS.GetVariable('wotd_peril_delta').GetValue]#!:"
+ exploration_current_peril_tt:0 "Current peril level: #negative_value [THIS.GetVariable('wotd_peril_counter').GetValue]#!:
+

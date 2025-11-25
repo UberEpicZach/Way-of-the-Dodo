@@ -1,0 +1,3 @@
+﻿exploration_peril_gc = {
+	texture = "gfx/interface/icons/alerts_icons/explorer_alert.dds"
+}

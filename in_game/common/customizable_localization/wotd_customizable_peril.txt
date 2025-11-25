@@ -1,0 +1,35 @@
+﻿exploration_peril_loc = {
+    type = country
+    random_valid = yes
+
+	text = { # Low
+		trigger = { 
+			var:wotd_peril_counter >= 0 
+			var:wotd_peril_counter <= 2 
+		}
+		localization_key = WOTD_peril_loc_low
+	}
+	
+	text = { # Moderate
+		trigger = { 
+			var:wotd_peril_counter >= 3 
+			var:wotd_peril_counter <= 5 
+		}
+		localization_key = WOTD_peril_loc_moderate
+	}
+	
+	text = { # High
+		trigger = { 
+			var:wotd_peril_counter >= 6 
+			var:wotd_peril_counter <= 7 
+		}
+		localization_key = WOTD_peril_loc_high
+	}
+	
+	text = { # Doomed
+		trigger = { 
+			var:wotd_peril_counter >= 8 
+		}
+		localization_key = WOTD_peril_loc_very_high
+	}
+}
