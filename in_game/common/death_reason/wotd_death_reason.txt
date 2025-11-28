@@ -1,0 +1,3 @@
+﻿crew_mutiny = {
+	possible_parameter = killer
+}

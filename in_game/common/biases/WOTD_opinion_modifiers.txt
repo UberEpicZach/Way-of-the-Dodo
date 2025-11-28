@@ -12,6 +12,11 @@
 
 #----------------------------------------
 
+wotd_gifted_kakapo = {
+	value = 30
+	yearly_decay = 1
+}
+
 
 wotd_gifted_borneo_pygmy_elephant = {
 	value = 50

@@ -40,6 +40,58 @@
 #     else = { change_variable = { name = wotd_peril_counter add = $CHANGE$ } }
 # }
 
+decrease_peril_effect = {
+    location = {
+        # Preview variable for tooltip
+        set_variable = { name = wotd_peril_delta value = $CHANGE$ }
+
+        if = {
+            limit = { NOT = { has_variable = wotd_peril_counter } }
+            set_variable = { name = wotd_peril_counter value = 0 }
+            change_variable = { name = wotd_peril_counter add = $CHANGE$ }
+        }
+
+        # This exists only so we can compare the owner
+        if = {
+            limit = {
+                NOT = {
+                    area = {
+                        any_location_in_area = {
+                            has_variable = wotd_exploration_location_check
+                        }
+                    }
+                }
+            }
+            # This is the actual origin tile
+            set_variable = { name = wotd_exploration_location_check value = owner }
+        }
+
+        # Find the true exploration origin province
+        area = {
+            random_location_in_area = {
+                limit = {
+                    has_variable = wotd_exploration_location_check
+                    var:wotd_exploration_location_check = owner
+                }
+
+                # Now we are inside the correct province
+                # Subtract the peril here
+                change_variable = { name = wotd_peril_counter subtract = $CHANGE$ }
+
+                # Save it back for tooltips outside
+                save_scope_as = exploration_source
+            }
+        }
+
+        # Return to the exploration origin so tooltips always read the right place
+        scope:exploration_source = {
+            custom_tooltip = exploration_event_decreasing_peril_tt
+            custom_tooltip = exploration_lose_peril_tt
+            custom_tooltip = exploration_current_peril_tt
+        }
+    }
+}
+
 increase_peril_effect = {
     location = {
         # Preview variable for tooltip
@@ -48,6 +100,7 @@ increase_peril_effect = {
         if = {
             limit = { NOT = { has_variable = wotd_peril_counter } }
             set_variable = { name = wotd_peril_counter value = 0 }
+            change_variable = { name = wotd_peril_counter add = $CHANGE$ }
         }
 
         # This literally only exists so i can compare the owner
@@ -91,42 +144,4 @@ increase_peril_effect = {
     }
 }
 
-
-peril_tooltip_effect = {
-    custom_tooltip = exploration_event_increase_peril_tt
-    custom_tooltip = exploration_gain_peril_tt
-    custom_tooltip = exploration_current_peril_tt
-}
-
-decrease_peril_effect = { 
-    location = {
-        set_variable = { name = wotd_peril_delta value = $CHANGE$ }
-
-        if = {
-            limit = { NOT = { has_variable = wotd_peril_counter } }
-            set_variable = { name = wotd_peril_counter value = 0 }
-        }
-
-        if = {
-            limit = { NOT = { has_variable = wotd_exploration_location_check } }
-            set_variable = { name = wotd_exploration_location_check value = owner }
-        }
-
-        area = {
-            any_location_in_area = {
-                limit = {
-                    has_variable = wotd_exploration_location_check
-                    var:wotd_exploration_location_check = owner
-                }
-                # Subtract peril
-                change_variable = { name = wotd_peril_counter subtract = $CHANGE$ }
-            }
-        }
-    }
-
-    # Tooltips
-    custom_tooltip = exploration_event_decreasing_peril_tt
-    custom_tooltip = exploration_lose_peril_tt
-    custom_tooltip = exploration_current_peril_tt
-}
 

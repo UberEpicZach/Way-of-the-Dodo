@@ -36,20 +36,48 @@ wotd_flora_and_fauna.1 = {
 					value = exploration_time
 					multiply = -0.02
 				}
+
+				increase_peril_effect = {
+					CHANGE = wotd_peril_small_value
+				}
 			}
 		}
 	}
+
 	option = {
 		name = wotd_flora_and_fauna.1.b
-		
+		trigger = {
+			location = {
+				any_neighbor_location = {
+					has_owner = yes 
+				}
+			}
+		}
+
+		location = {
+			random_neighbor_location = {
+				limit = {
+					has_owner = yes
+				}
+				save_scope_as = target_country
+				owner = {
+					add_opinion = {
+						target = scope:target_root_country
+						modifier = wotd_gifted_kakapo
+					}
+				}
+			}
+		}
 	}
+
 	option = {
 		name = wotd_flora_and_fauna.1.c
 
 		leader = {
-			add_character_modifier = { modifier = friendly_dog mode = add_and_extend }
+			add_character_modifier = { modifier = wotd_pet_parrot_kakapo mode = add_and_extend }
 		}
 	}
+
 	after = { 
 		owner = { set_variable = wotd_discovered_kakapo }
 	}
@@ -98,7 +126,11 @@ wotd_flora_and_fauna.2 = {
 
 		change_exploration_progress = {
 			value = exploration_time
-			multiply = -0.05
+			multiply = -0.25
+		}
+
+		decrease_peril_effect = {
+			CHANGE = wotd_peril_large_value
 		}
 
 		owner = {
@@ -217,6 +249,9 @@ wotd_flora_and_fauna.4 = {
 			value = exploration_time
 			multiply = -0.10
 		}
+		increase_peril_effect = {
+			CHANGE = wotd_peril_medium_value
+		}
 		hidden_effect = {
 			trigger_event_silently = {
 				id = wotd_flora_and_fauna.5
@@ -230,6 +265,9 @@ wotd_flora_and_fauna.4 = {
 		change_exploration_progress = {
 			value = exploration_time
 			multiply = -0.10
+		}
+		increase_peril_effect = {
+			CHANGE = wotd_peril_medium_value
 		}
 		hidden_effect = {
 			trigger_event_silently = {
@@ -245,6 +283,9 @@ wotd_flora_and_fauna.4 = {
 			value = exploration_time
 			multiply = -0.10
 		}
+		increase_peril_effect = {
+			CHANGE = wotd_peril_medium_value
+		}
 		hidden_effect = {
 			trigger_event_silently = {
 				id = wotd_flora_and_fauna.5
@@ -258,6 +299,9 @@ wotd_flora_and_fauna.4 = {
 		change_exploration_progress = {
 			value = exploration_time
 			multiply = -0.10
+		}
+		increase_peril_effect = {
+			CHANGE = wotd_peril_medium_value
 		}
 		hidden_effect = {
 			trigger_event_silently = {
@@ -440,9 +484,15 @@ wotd_flora_and_fauna.9 = {
 	option = {
 		name = wotd_flora_and_fauna.9.a
 		# Useless bird, forget about it
+		increase_peril_effect = {
+			CHANGE = wotd_peril_small_value
+		}
 	}
 	option = {
 		name = wotd_flora_and_fauna.9.b
+		increase_peril_effect = {
+			CHANGE = wotd_peril_small_value
+		}
 		random = {
 			chance = 50
 			owner = {
@@ -577,6 +627,9 @@ wotd_flora_and_fauna.12 = {
 				add_dip = 10
 			}
 		}
+		decrease_peril_effect = {
+			CHANGE = wotd_peril_small_value
+		}
 	}
 	after = { 
 		owner = { set_variable = wotd_discovered_african_penguins }
@@ -668,6 +721,9 @@ wotd_flora_and_fauna.13 = {
 					add_character_modifier = { modifier = injured years = 1 }
 					add_character_modifier = { modifier = wotd_rescued_cook_modifier years = 5 }
 				}
+				decrease_peril_effect = {
+					CHANGE = wotd_peril_large_value
+				}
 			}
 			10 = {
 				change_exploration_progress = {
@@ -679,6 +735,9 @@ wotd_flora_and_fauna.13 = {
 						scope:explorer = {
 							add_character_modifier = { modifier = gravely_injured years = 1}
 						}
+						increase_peril_effect = {
+							CHANGE = wotd_peril_medium_value
+						}
 					}
 					50 = {
 						scope:explorer = {
@@ -686,6 +745,9 @@ wotd_flora_and_fauna.13 = {
 								reason = wild_animal
 								target = this
 							}
+						}
+						increase_peril_effect = {
+							CHANGE = wotd_peril_large_value
 						}
 					}
 				}
@@ -728,6 +790,9 @@ wotd_flora_and_fauna.14 = {
 		}
 		scope:explorer = {
 			add_character_modifier = { modifier = wotd_disgusted_explorer_modifier years = 1 }
+		}
+		increase_peril_effect = {
+			CHANGE = wotd_peril_small_value
 		}
 	}
 
@@ -798,6 +863,9 @@ wotd_flora_and_fauna.17 = {
 			add_character_modifier = { modifier = wotd_ocelot_companion_modifier years = 5 } 
 			add_artist_skill = 0.10
 		}
+		decrease_peril_effect = {
+			CHANGE = wotd_peril_medium_value
+		}
 	}
 	option = {
 		name = wotd_flora_and_fauna.17.b
@@ -823,38 +891,76 @@ wotd_flora_and_fauna.17 = {
 # # Actions:
 # # A: Time for a change in management. Who’s with me? (Conquistadors dies, new one is up for employ)
 
-# # Event 18: Thieving Tamarins
-# wotd_flora_and_fauna.18 = {
-# 	type = exploration_event
-# 	title = wotd_flora_and_fauna.18.title
-# 	desc = wotd_flora_and_fauna.18.desc
-# 	hide_portraits = yes
-# 	image = "gfx/interface/illustrations/event/backgrounds/wotd/golden_lion_tamarin.dds"
+# Event 18: Thieving Tamarins
+wotd_flora_and_fauna.18 = {
+	type = exploration_event
+	title = wotd_flora_and_fauna.18.title
+	desc = wotd_flora_and_fauna.18.desc
+	hide_portraits = yes
+	image = "gfx/interface/illustrations/event/backgrounds/wotd/golden_lion_tamarin.dds"
 
-# 	trigger = {
-# 		exploration_progress > 0.05
-# 		leader ?= {
-# 			is_alive = yes
-# 		}
-# 		owner = { NOT = { has_variable = wotd_discovered_golden_lion_tamarin } }
-# 		location = {
-# 			region = region:brazil_region
-# 		}
-# 	}
+	trigger = {
+		exploration_progress > 0.05
+		leader ?= {
+			is_alive = yes
+		}
+		owner = { NOT = { has_variable = wotd_discovered_golden_lion_tamarin } }
+		location = {
+			region = region:brazil_region
+		}
+	}
 
-# 	immediate = {
-# 		leader = { save_scope_as = explorer }
-# 	}
+	immediate = {
+		leader = { save_scope_as = explorer }
 
-# 	option = {
-# 		name = wotd_flora_and_fauna.18.a
-# 		# Time for a change in management. Who's with me? (Conquistador dies, new one is up for employ)
-# 	}
+		owner = {
+			create_character = {
+				age = {20 30}
+				random_estate_type_trigger = {
+					root = { estate_type_allowed_in_cabinet = {	estate_type = prev } }
+				}
+				trait_category = explorer
+				create_in_limbo = yes
+				save_scope_as = explorer_character
+			}
+			scope:explorer_character = {
+				move_country = root
+			}
+		}
+		location.area = {
+			save_scope_as = area_of_exploration
+		}
+	}
 
-# 	after = { 
-# 		owner = { set_variable = wotd_discovered_golden_lion_tamarin }
-# 	}
-# }
+	option = {
+		name = wotd_flora_and_fauna.18.a
+		# Time for a change in management. Who's with me? (Conquistador dies, new one is up for employ)
+
+		leader = {
+			kill_character = {
+				reason = crew_mutiny
+				target = this
+				killer = scope:explorer_character
+			}
+		}
+
+		owner = { 
+			change_explorer = { area = scope:area_of_exploration character = scope:explorer_character }
+		}
+	}
+	option = {
+		name = wotd_flora_and_fauna.18.b
+		# Let the monkeys be, they mean no harm.
+
+		decrease_peril_effect = {
+			CHANGE = wotd_peril_medium_value
+		}
+	}
+
+	after = { 
+		owner = { set_variable = wotd_discovered_golden_lion_tamarin }
+	}
+}
 
 # # RED_KANGAROO_eventPicture.dds
 # # flora_and_fauna_events.11
@@ -867,39 +973,61 @@ wotd_flora_and_fauna.17 = {
 
 # # Actions:
 # # A. Surely, that name won’t stick.Will it? (- prestige)
-# # Event 19: An Etymological Mistake or Farce?
-# wotd_flora_and_fauna.19 = {
-# 	type = exploration_event
-# 	title = wotd_flora_and_fauna.19.title
-# 	desc = wotd_flora_and_fauna.19.desc
-# 	hide_portraits = yes
-# 	image = "gfx/interface/illustrations/event/backgrounds/wotd/red_kangaroo.dds"
+# Event 19: An Etymological Mistake or Farce?
+wotd_flora_and_fauna.19 = {
+	type = exploration_event
+	title = wotd_flora_and_fauna.19.title
+	desc = wotd_flora_and_fauna.19.desc
+	hide_portraits = yes
+	image = "gfx/interface/illustrations/event/backgrounds/wotd/red_kangaroo.dds"
 
-# 	trigger = {
-# 		exploration_progress > 0.05
-# 		leader ?= {
-# 			is_alive = yes
-# 		}
-# 		owner = { NOT = { has_variable = wotd_discovered_kangaroo } }
-# 		location = {
-# 			region = region:australia_region
-# 		}
-# 		area = { is_area_sea = no }
-# 	}
+	trigger = {
+		exploration_progress > 0.05
+		leader ?= {
+			is_alive = yes
+		}
+		owner = { NOT = { has_variable = wotd_discovered_kangaroo } }
+		location = {
+			region = region:australia_region
+		}
+		area = { is_area_sea = no }
+	}
 
-# 	immediate = {
-# 		leader = { save_scope_as = explorer }
-# 	}
+	immediate = {
+		leader = { save_scope_as = explorer }
+	}
 
-# 	option = {
-# 		name = wotd_flora_and_fauna.19.a
-# 		owner = { add_prestige = -5 }
-# 	}
+	option = {
+		name = wotd_flora_and_fauna.19.a
+		# "Challenge the crew to catch one for sport"
+		random_list = {
+			70 = {
+				custom_tooltip = wotd_kangaroo_chase_fail_tt
+				# "The kangaroos easily outpace our men"
+				increase_peril_effect = {
+					CHANGE = wotd_peril_small_value
+				}
+			}
+			30 = {
+				custom_tooltip = wotd_kangaroo_chase_success_tt
+				# "One man manages to tackle a joey"
+				decrease_peril_effect = {
+					CHANGE = wotd_peril_small_value
+				}
+				owner = { add_prestige = 10 }
+			}
+		}
+	}
+	# option = {
+	# 	name = wotd_flora_and_fauna.19.b
+	# 	# "Surely, that name won't stick. Will it?"
+	# 	owner = { add_prestige = -5 }
+	# }
 
-# 	after = { 
-# 		owner = { set_variable = wotd_discovered_kangaroo }
-# 	}
-# }
+	after = { 
+		owner = { set_variable = wotd_discovered_kangaroo }
+	}
+}
 
 # # PUERTO_RICAN_PARROT_eventPicture.dds
 # # flora_and_fauna_events.12
@@ -1166,7 +1294,7 @@ wotd_flora_and_fauna.23 = {
 				}
 			}
 		}
-	}
+	} 
 
 	after = { 
 		owner = { set_variable = wotd_discovered_moa }
@@ -1228,6 +1356,10 @@ wotd_flora_and_fauna.24 = {
 			}
 		}
 		custom_tooltip = wotd_gifted_borneo_pygmy_elephant_desc
+
+		decrease_peril_effect = {
+			CHANGE = wotd_peril_medium_value
+		}
 	}
 
 	option = {
@@ -1302,6 +1434,10 @@ wotd_flora_and_fauna.25 = {
 			id = wotd_flora_and_fauna.26
 			#years = { 1 5}
 			days = 1
+		}
+		custom_tooltip = wotd_beaver_comforting.tt
+		decrease_peril_effect = {
+			CHANGE = wotd_peril_large_value
 		}
 	}
 

@@ -1,4 +1,11 @@
-﻿wotd_mermaid_skeleton_modifier = {
+﻿wotd_pet_parrot_kakapo = {
+	game_data = {
+		category = character
+	}
+	exploration_mission_speed = 0.10
+}
+
+wotd_mermaid_skeleton_modifier = {
 	game_data = {
 		category = country
 		decaying = yes
