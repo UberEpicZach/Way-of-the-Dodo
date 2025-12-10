@@ -42,7 +42,6 @@
 
 decrease_peril_effect = {
     location = {
-        # Preview variable for tooltip
         set_variable = { name = wotd_peril_delta value = $CHANGE$ }
 
         if = {
@@ -51,7 +50,6 @@ decrease_peril_effect = {
             change_variable = { name = wotd_peril_counter add = $CHANGE$ }
         }
 
-        # This exists only so we can compare the owner
         if = {
             limit = {
                 NOT = {
@@ -62,48 +60,57 @@ decrease_peril_effect = {
                     }
                 }
             }
-            # This is the actual origin tile
             set_variable = { name = wotd_exploration_location_check value = owner }
         }
 
-        # Find the true exploration origin province
         area = {
             random_location_in_area = {
                 limit = {
                     has_variable = wotd_exploration_location_check
                     var:wotd_exploration_location_check = owner
                 }
-
-                # Now we are inside the correct province
-                # Subtract the peril here
                 change_variable = { name = wotd_peril_counter subtract = $CHANGE$ }
-
-                # Save it back for tooltips outside
                 save_scope_as = exploration_source
             }
         }
 
-        # Return to the exploration origin so tooltips always read the right place
-        scope:exploration_source = {
-            custom_tooltip = exploration_event_decreasing_peril_tt
-            custom_tooltip = exploration_lose_peril_tt
-            custom_tooltip = exploration_current_peril_tt
+        
+        if = {
+            limit = { NOT = { exists = scope:exploration_source } }
+            save_scope_as = exploration_source
+        }
+
+        scope:exploration_source ?= {
+            if = {
+                limit = { NOT = { exists = var:wotd_peril_counter } }
+                custom_tooltip = exploration_lose_peril_tt_empty
+            }
+            if = {
+                limit = { exists = var:wotd_peril_counter var:wotd_peril_counter != 0 }
+                custom_tooltip = exploration_event_decreasing_peril_tt
+                custom_tooltip = exploration_lose_peril_tt
+                if = {
+                    limit = { var:wotd_peril_counter > 0 }
+                    custom_tooltip = exploration_current_peril_tt_red
+                }
+                if = {
+                    limit = { var:wotd_peril_counter < 0 }
+                    custom_tooltip = exploration_current_peril_tt_green
+                }
+            }
         }
     }
 }
 
 increase_peril_effect = {
     location = {
-        # Preview variable for tooltip
         set_variable = { name = wotd_peril_delta value = $CHANGE$ }
 
         if = {
             limit = { NOT = { has_variable = wotd_peril_counter } }
             set_variable = { name = wotd_peril_counter value = 0 }
-            change_variable = { name = wotd_peril_counter add = $CHANGE$ }
         }
 
-        # This literally only exists so i can compare the owner
         if = {
             limit = {
                 NOT = {
@@ -114,32 +121,43 @@ increase_peril_effect = {
                     }
                 }
             }
-            # This is the actual origin tile
             set_variable = { name = wotd_exploration_location_check value = owner }
         }
 
-        # We need to find the TRUE exploration origin province
         area = {
             random_location_in_area = {
                 limit = {
                     has_variable = wotd_exploration_location_check
                     var:wotd_exploration_location_check = owner
                 }
-
-                # Now we are INSIDE the correct province
-                # Apply the peril here.
                 change_variable = { name = wotd_peril_counter add = $CHANGE$ }
-
-                # Save it back for tooltips outside
                 save_scope_as = exploration_source
             }
         }
 
-        # Return to the exploration origin so tooltips always read the right place
-        scope:exploration_source = {
-            custom_tooltip = exploration_event_increase_peril_tt
-            custom_tooltip = exploration_gain_peril_tt
-            custom_tooltip = exploration_current_peril_tt
+        if = {
+            limit = { NOT = { exists = scope:exploration_source } }
+            save_scope_as = exploration_source
+        }
+
+        scope:exploration_source ?= {
+            if = {
+                limit = { NOT = { exists = var:wotd_peril_counter } }
+                custom_tooltip = exploration_gain_peril_tt_empty
+            }
+            if = {
+                limit = { exists = var:wotd_peril_counter var:wotd_peril_counter != 0 }
+                custom_tooltip = exploration_event_increase_peril_tt
+                custom_tooltip = exploration_gain_peril_tt
+                if = {
+                    limit = { var:wotd_peril_counter > 0 }
+                    custom_tooltip = exploration_current_peril_tt_red
+                }
+                if = {
+                    limit = { var:wotd_peril_counter < 0 }
+                    custom_tooltip = exploration_current_peril_tt_green
+                }
+            }
         }
     }
 }

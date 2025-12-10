@@ -877,20 +877,6 @@ wotd_flora_and_fauna.17 = {
 	}
 }
 
-# # GOLDEN_LION_TAMARIN_eventPicture.dds
-# # flora_and_fauna_events.10
-# # Title:
-# # Thieving Tamarins
-# # Description:
-# # Our camp’s supplies seem to be dwindling at frightening rate, and after checking everyone’s personal belongings for pilfering, we are none the wiser. Our conquistador, angered by his troops supposed insolence has been personally guarding the camp’s supplies. And, while less is being stolen, a person can only stay awake for so many hours before some shut-eye is needed. This whole endeavor has impeded our ability to properly navigate the terrain, and the morale in the camp is at a breaking point. 
-
-# # A few days later, one of the soldiers spotted an orange shimmer among the supplies. Expecting to catch the thief in the act, he rushes onwards only to stumble and fall at his encounter with the suspect. Before him is gathered a pack of golden maned monkey meticulously scavenging through the camp’s supplies, which at the sight of the soldier scurry away deep into the forest. On the soldier’s immediate report on the occurrence he’s flogged by our conquistador for his blatant attempt at lying. 
-
-# # A few days later the monkeys are once again spotted, this time during communal dinner time under the view of the entire company. The camp is visibly annoyed, much to the humiliation of our conquistador. Hopefully morale can be restored.
-
-# # Actions:
-# # A: Time for a change in management. Who’s with me? (Conquistadors dies, new one is up for employ)
-
 # Event 18: Thieving Tamarins
 wotd_flora_and_fauna.18 = {
 	type = exploration_event
@@ -962,17 +948,6 @@ wotd_flora_and_fauna.18 = {
 	}
 }
 
-# # RED_KANGAROO_eventPicture.dds
-# # flora_and_fauna_events.11
-# # Title: An Etymological Mistake or Farce?
-
-# # Description:
-# # Our captain sent his crew to the Australian coast to shoot pigeons for the sick people on board. When the crew returned, they told us that they had seen an animal that was as big as a greyhound, mouse grey and fast jumping. A few days later our captain saw these animals himself. And a few weeks later again, our naturalist with four companions went ashore to make an excursion. Our captain writes: “After a march of many miles they discovered four similar animals, of which two were chased by the greyhounds of our naturalist. The animals escaped by leaps and bounds in the thick, tall grass, not to be seen again. These creatures do not walk on four legs, but jump like a jumping mouse on their hind legs quickly forward. When we asked the locals they replied with the word ‘Kangaroo’. Such a fascinating beast.”
-
-# # On further observation, though, the kangaroo got its name from a confusion of tongues. In an attempt by the explorers to inquire how these creatures were called. The Aborigines gave the answer “kangaroo” meaning “I do not understand you”. To this vague information, which the natives gave about this animal, our naturalist, he named the animal “Kangaroo”.
-
-# # Actions:
-# # A. Surely, that name won’t stick.Will it? (- prestige)
 # Event 19: An Etymological Mistake or Farce?
 wotd_flora_and_fauna.19 = {
 	type = exploration_event
@@ -1018,159 +993,151 @@ wotd_flora_and_fauna.19 = {
 			}
 		}
 	}
-	# option = {
-	# 	name = wotd_flora_and_fauna.19.b
-	# 	# "Surely, that name won't stick. Will it?"
-	# 	owner = { add_prestige = -5 }
-	# }
 
 	after = { 
 		owner = { set_variable = wotd_discovered_kangaroo }
 	}
 }
 
-# # PUERTO_RICAN_PARROT_eventPicture.dds
-# # flora_and_fauna_events.12
-# # Title: A not so Holy Saviour
+# "Squawking Echoes" 
+wotd_flora_and_fauna.20 = {
+	type = exploration_event
+	title = wotd_flora_and_fauna.20.title
+	desc = wotd_flora_and_fauna.20.desc
+	hide_portraits = yes
+	image = "gfx/interface/illustrations/event/backgrounds/wotd/puerto_rican_parrot.dds"
 
-# # Description:
-# # In 1493, when Christopher Columbus sailed into the cove of the Caribbean island now known as Puerto Rico, he was warmly greeted by the Taíno inhabitants while hundreds of noisy bright-green parrots with beautiful white-ringed eyes, which the Taínos called Higuaca, swooped overhead. The bird and the people that called this island their home would soon regret the songs and gifts they provided to these strangers from far away lands, as both would see their demise the next time these visitors embarked on their island.
+	trigger = {
+		exploration_progress > 0.05
+		leader ?= {
+			is_alive = yes
+		}
+		owner = { NOT = { has_variable = wotd_discovered_puerto_rican_parrot } }
+		location = {
+			region = region:caribbean_region
+		}
+		area = { is_area_sea = no }
+	}
 
-# # Actions:
-# # A. For America must be Christian! So blood must flow. (remove all natives from these provinces )
-# # Event 20: A not so Holy Saviour
-# wotd_flora_and_fauna.20 = {
-# 	type = exploration_event
-# 	title = wotd_flora_and_fauna.20.title
-# 	desc = wotd_flora_and_fauna.20.desc
-# 	hide_portraits = yes
-# 	image = "gfx/interface/illustrations/event/backgrounds/wotd/puerto_rican_parrot.dds"
+	immediate = {
+		leader = { save_scope_as = explorer }
+	}
 
-# 	trigger = {
-# 		exploration_progress > 0.05
-# 		leader ?= {
-# 			is_alive = yes
-# 		}
-# 		owner = { NOT = { has_variable = wotd_discovered_puerto_rican_parrot } }
-# 		location = {
-# 			region = region:caribbean_region
-# 		}
-# 		area = { is_area_sea = no }
-# 	}
+	option = {
+		name = wotd_flora_and_fauna.20.a
+		# This parrot shall join our ranks!
+		scope:explorer = {
+			add_character_modifier = { modifier = wotd_parrot_companion_modifier years = 18 }
+		}
+		decrease_peril_effect = {
+			CHANGE = wotd_peril_medium_value
+		}
+	}
 
-# 	immediate = {
-# 		leader = { save_scope_as = explorer }
-# 	}
+	after = { 
+		owner = { set_variable = wotd_discovered_puerto_rican_parrot }
+	}
+}
 
-# 	option = {
-# 		name = wotd_flora_and_fauna.20.a
-# 		location = {
-# 			every_nomad_countries_in_location = {
-# 				remove_country_from_location = this
-# 			}
-# 		}
-# 	}
+# Event 21: Tasmanian Wolf
+wotd_flora_and_fauna.21 = {
+	type = exploration_event
+	title = wotd_flora_and_fauna.21.title
+	desc = wotd_flora_and_fauna.21.desc
+	hide_portraits = yes
+	image = "gfx/interface/illustrations/event/backgrounds/wotd/thylacine_wolf.dds"
 
-# 	after = { 
-# 		owner = { set_variable = wotd_discovered_puerto_rican_parrot }
-# 	}
-# }
+	trigger = {
+		exploration_progress > 0.05
+		leader ?= {
+			is_alive = yes
+		}
+		owner = { NOT = { has_variable = wotd_discovered_thylacine } }
+		location = {
+			province_definition = province_definition:tasmania_province
+		}
+		area = { is_area_sea = no }
+	}
 
-# # THYLACINE_WOLF_eventPicture.dds
-# # flora_and_fauna_events.13
+	immediate = {
+		leader = { save_scope_as = explorer }
+	}
 
-# # Title: Tasmanian Wolf
+	option = {
+		name = wotd_flora_and_fauna.21.a
+		owner = { add_gold = -100 }
+		random_list = {
+			80 = {
+				custom_tooltip = wotd_thylacine_eradication_success_tt
+				# "The wolves have been successfully driven from the area"
+				location = {
+					change_raw_material = goods:wool
+				}
+			}
+			20 = {
+				custom_tooltip = wotd_thylacine_eradication_failure_tt
+				# "The wolves prove more cunning than expected"
+				increase_peril_effect = {
+					CHANGE = wotd_peril_small_value
+				}
+				show_as_tooltip = {
+					scope:explorer = { add_character_modifier = { modifier = injured months = 3 mode = add_and_extend } }
+				}
+				hidden_effect = {
+					random_list = {
+						10 = {
+							scope:explorer = { add_character_modifier = { modifier = injured months = 5 mode = add_and_extend } }
+						}
+						8 = {
+							scope:explorer = { add_character_modifier = { modifier = severely_injured months = 9 mode = add_and_extend } }
+						}
+						5 = {
+							scope:explorer = { add_character_modifier = { modifier = gravely_injured months = 13 mode = add_and_extend } }
+						}
+					}
+				}
+			}
+		}
+	}
 
-# # Description:
-# # Our colonists on the island of Tasmania are complaining about an carnivore indigenous to the island. With reports reading as follows: 
+	option = {
+		name = wotd_flora_and_fauna.21.b
+		# "Husbandry? Ha! Dig deep, and dig greedily." - Avoid the problem
+		owner = { add_gold = -200 }
+		location = {
+			random_list = {
+				5 = { 
+					change_raw_material = goods:goods_gold
+				}
+				10 = { 
+					change_raw_material = goods:copper 
+					owner = { add_gold = 50 }
+				}
+				15 = { 
+					change_raw_material = goods:iron 
+					owner = { add_gold = 25 }
+				}
+				80 = { 
+				}
+			}
+		}
+	}
 
-# # “For although too feeble to make a successful attack on man, it commits sad havoc among the small quadrupeds of the country, and amongst the poultry, and other domestic animals of the settler; even the sheep are not secure from its attacks, which are the more difficult to guard against, as the habits of the animal being nocturnal. The destruction it deals called forth the enmity of our settlers” .
+	option = {
+		name = wotd_flora_and_fauna.21.c
+		location = {
+			change_raw_material = goods:livestock
+		}
 
-# # Unless these crafty beasts are driven from the island, we won’t be able to develop the pastoral community. 
+		ai_chance = {
+			base = 100
+		}
+	}
 
-# # Actions:
-# # A. Our Homeland once had wolves. Once. (province becomes wool, or cattle and extra goods produced)
-# # B. Husbandry? Ha! Dig deep, and dig greedily. (% change for gold, copper, or iron with the latter being more likely -money, but also give province coal as second resource? possible?)
-# # C. I’d like to see them try and take down a cow. (Cattle.. But, change of decreased goods produced)
-# # Event 21: Tasmanian Wolf
-# wotd_flora_and_fauna.21 = {
-# 	type = exploration_event
-# 	title = wotd_flora_and_fauna.21.title
-# 	desc = wotd_flora_and_fauna.21.desc
-# 	hide_portraits = yes
-# 	image = "gfx/interface/illustrations/event/backgrounds/wotd/thylacine_wolf.dds"
-
-# 	trigger = {
-# 		exploration_progress > 0.05
-# 		leader ?= {
-# 			is_alive = yes
-# 		}
-# 		owner = { NOT = { has_variable = wotd_discovered_thylacine } }
-# 		location = {
-# 			area = area:tasmania_area
-# 		}
-# 		area = { is_area_sea = no }
-# 	}
-
-# 	immediate = {
-# 		leader = { save_scope_as = explorer }
-# 	}
-
-# 	option = {
-# 		name = wotd_flora_and_fauna.21.a
-# 		# Our Homeland once had wolves. Once.
-# 		location = {
-# 			random_list = {
-# 				50 = {
-# 					set_goods_produced = wool
-# 				}
-# 				50 = {
-# 					set_goods_produced = cattle
-# 				}
-# 			}
-# 			add_location_modifier = {
-# 				modifier = wotd_wolf_eradication_modifier
-# 				years = 10
-# 			}
-# 		}
-# 	}
-
-# 	option = {
-# 		name = wotd_flora_and_fauna.21.b
-# 		# Husbandry? Ha! Dig deep, and dig greedily.
-# 		owner = { add_gold = -50 }
-# 		location = {
-# 			random_list = {
-# 				10 = {
-# 					set_goods_produced = gold
-# 				}
-# 				25 = {
-# 					set_goods_produced = copper
-# 				}
-# 				65 = {
-# 					set_goods_produced = iron
-# 				}
-# 			}
-# 			set_goods_produced_secondary = coal
-# 		}
-# 	}
-
-# 	option = {
-# 		name = wotd_flora_and_fauna.21.c
-# 		# I'd like to see them try and take down a cow.
-# 		location = {
-# 			set_goods_produced = cattle
-# 			add_location_modifier = {
-# 				modifier = wotd_thylacine_threat_modifier
-# 				years = 5
-# 			}
-# 		}
-# 	}
-
-# 	after = { 
-# 		owner = { set_variable = wotd_discovered_thylacine }
-# 	}
-# }
+	after = { 
+		owner = { set_variable = wotd_discovered_thylacine }
+	}
+}
 
 # Event 22: Moa and the Maori
 wotd_flora_and_fauna.22 = {
@@ -1525,148 +1492,235 @@ wotd_flora_and_fauna.26 = {
 	}
 }
 
-# # Event 27: Huohu - Red Panda's Good Luck Charm
-# wotd_flora_and_fauna.27 = {
-# 	type = exploration_event
-# 	title = wotd_flora_and_fauna.27.title
-# 	desc = wotd_flora_and_fauna.27.desc
-# 	hide_portraits = yes
-# 	image = "gfx/interface/illustrations/event/backgrounds/wotd/red_panda.dds"
+# Event 27: Huohu - Red Panda's Good Luck Charm
+wotd_flora_and_fauna.27 = {
+	type = exploration_event
+	title = wotd_flora_and_fauna.27.title
+	desc = wotd_flora_and_fauna.27.desc
+	hide_portraits = yes
+	image = "gfx/interface/illustrations/event/backgrounds/wotd/red_panda.dds"
 
-# 	trigger = {
-# 		exploration_progress > 0.05
-# 		leader ?= {
-# 			is_alive = yes
-# 		}
-# 		owner = { 
-# 			NOT = { has_variable = wotd_discovered_red_panda }
-# 			capital_state = { region = region:china_region }
-# 		}
-# 		location = {
-# 			region = region:china_region
-# 		}
-# 		area = { is_area_sea = no }
-# 	}
+	trigger = {
+		exploration_progress > 0.05
+		leader ?= {
+			is_alive = yes
+		}
+		owner = { 
+			NOT = { has_variable = wotd_discovered_red_panda }
+		}
+		location = {
+			OR = {
+				area = area:u_area
+				area = area:assam_area
+				area = area:kham_area
+				area = area:nepal_area
+			}
+		}
+		area = { is_area_sea = no }
+	}
 
-# 	immediate = {
-# 		leader = { save_scope_as = explorer }
-# 		owner = { save_scope_as = discovery_country }
-# 	}
+	immediate = {
+		leader = { save_scope_as = explorer }
+		owner = { save_scope_as = discovery_country }
+	}
 
-# 	option = {
-# 		name = wotd_flora_and_fauna.27.a
-# 		# Red. How proper.
-# 		owner = {
-# 			add_dip = -1
-# 			add_legitimacy = 5
-# 		}
-# 	}
+	option = {
+		name = wotd_flora_and_fauna.27.a
+		# Red. How proper.
+		decrease_peril_effect = {
+			CHANGE = wotd_peril_small_value
+		}
+		scope:explorer = {
+			add_character_modifier = { modifier = wotd_red_panda_companion_modifier years = 15 }
+		}
+	}
 
-# 	after = { 
-# 		owner = { set_variable = wotd_discovered_red_panda }
-# 	}
-# }
+	option = {
+		name = wotd_flora_and_fauna.27.b
+		# Spectate the Wedding
+		location.region = {
+			random_location_in_region = {
+				limit = {
+					has_owner = yes
+					owner != scope:discovery_country
+				}
+				owner = {
+					add_opinion = {
+						target = scope:discovery_country
+						modifier = wotd_attended_red_panda_wedding
+					}
+				}
+			}
+		}
+
+		owner = { add_gold = -50}
+
+		decrease_peril_effect = {
+			CHANGE = wotd_peril_large_value
+		}
+	}
+
+	after = { 
+		owner = { set_variable = wotd_discovered_red_panda }
+	}
+}
  
-# # Event 28: Rampant Mandrill Horde
-# wotd_flora_and_fauna.28 = {
-# 	type = exploration_event
-# 	title = wotd_flora_and_fauna.28.title
-# 	desc = wotd_flora_and_fauna.28.desc
-# 	hide_portraits = yes
-# 	image = "gfx/interface/illustrations/event/backgrounds/wotd/mandrill_monkey.dds"
+# Event 28: Rampant Mandrill Horde
+wotd_flora_and_fauna.28 = {
+	type = exploration_event
+	title = wotd_flora_and_fauna.28.title
+	desc = wotd_flora_and_fauna.28.desc
+	hide_portraits = yes
+	image = "gfx/interface/illustrations/event/backgrounds/wotd/mandrill_monkey.dds"
 
-# 	trigger = {
-# 		exploration_progress > 0.05
-# 		leader ?= {
-# 			is_alive = yes
-# 		}
-# 		owner = { NOT = { has_variable = wotd_discovered_mandrill } }
-# 		location = {
-# 			region = region:africa_region
-# 		}
-# 		area = { is_area_sea = no }
-# 	}
+	trigger = {
+		exploration_progress > 0.05
+		leader ?= {
+			is_alive = yes
+		}
+		owner = { NOT = { has_variable = wotd_discovered_mandrill } }
+		location = {
+			OR = {
+				area = area:gulf_of_guinea_area
+				area = area:north_gabun_area
+			}
+		}
+		area = { is_area_sea = no }
+	}
 
-# 	immediate = {
-# 		leader = { save_scope_as = explorer }
-# 	}
+	immediate = {
+		leader = { save_scope_as = explorer }
+	}
 
-# 	option = {
-# 		name = wotd_flora_and_fauna.28.a
-# 		# Protect the food stores at all costs!
-# 	}
+	option = {
+		name = wotd_flora_and_fauna.28.a
+		# Protect the food stores at all costs!
+	}
 
-# 	option = {
-# 		name = wotd_flora_and_fauna.28.b
-# 		# A Horde you say?
-# 	}
+	option = {
+		name = wotd_flora_and_fauna.28.b
+		# A Horde you say?
+	}
 
-# 	after = { 
-# 		owner = { set_variable = wotd_discovered_mandrill }
-# 	}
-# }
+	after = { 
+		owner = { set_variable = wotd_discovered_mandrill }
+	}
+}
 
-# # Event 29: Here be Dragons
-# wotd_flora_and_fauna.29 = {
-# 	type = exploration_event
-# 	title = wotd_flora_and_fauna.29.title
-# 	desc = wotd_flora_and_fauna.29.desc
-# 	hide_portraits = yes
-# 	image = "gfx/interface/illustrations/event/backgrounds/wotd/komodo_dragon.dds"
+# Event 29: Here be Dragons
+wotd_flora_and_fauna.29 = {
+	type = exploration_event
+	title = wotd_flora_and_fauna.29.title
+	desc = wotd_flora_and_fauna.29.desc
+	hide_portraits = yes
+	image = "gfx/interface/illustrations/event/backgrounds/wotd/komodo_dragon.dds"
 
-# 	trigger = {
-# 		exploration_progress > 0.05
-# 		leader ?= {
-# 			is_alive = yes
-# 		}
-# 		owner = { NOT = { has_variable = wotd_discovered_komodo_dragon } }
-# 		location = {
-# 			area = area:lesser_sunda_islands_area
-# 		}
-# 		area = { is_area_sea = no }
-# 	}
+	trigger = {
+		exploration_progress > 0.05
+		leader ?= {
+			is_alive = yes
+		}
+		owner = { NOT = { has_variable = wotd_discovered_komodo_dragon } }
+		location = {
+			area = area:lesser_sunda_islands_area
+		}
+		area = { is_area_sea = no }
+	}
 
-# 	immediate = {
-# 		leader = { save_scope_as = explorer }
-# 		owner = { save_scope_as = discovery_country }
-# 	}
+	immediate = {
+		leader = { save_scope_as = explorer }
+		owner = { save_scope_as = discovery_country }
+	}
 
-# 	option = {
-# 		name = wotd_flora_and_fauna.29.a
+	option = {
+		name = wotd_flora_and_fauna.29.a
 
-# 		if = {
-# 			limit = {
-# 				OR = {
-# 					this = c:CHI_Ming
-# 					this = c:WLS
-# 					this = c:CTW
-# 					this = c:CHE
-# 					this = c:WUU
-# 					this = c:CFN
-# 					this = c:CMO
-# 					this = c:CXI
-# 					this = c:CGU
-# 					this = c:CSO
-# 				}
-# 			}
-# 			add_prestige = 10
-# 			add_colonial_claim = {
-# 				province_definition = province_definition:flores_province
-# 				reason = wotd_flora_and_fauna.29.a.claim.tt
-# 				category = same_religion
-# 			}
-# 		}
+		if = {
+			limit = {
+				OR = {
+					this = c:CHI_Ming
+					this = c:WLS
+					this = c:CTW
+					this = c:CHE
+					this = c:WUU
+					this = c:CFN
+					this = c:CMO
+					this = c:CXI
+					this = c:CGU
+					this = c:CSO
+				}
+			}
+			add_prestige = 10
+			add_colonial_claim = {
+				province_definition = province_definition:flores_province
+				reason = wotd_flora_and_fauna.29.a.claim.tt
+				category = same_religion
+			}
+		}
 
-# 		else = {
-# 			add_prestige = 5
-# 			change_exploration_progress = {
-# 				value = exploration_time
-# 				multiply = 0.05
-# 			}
-# 		}
-# 	}
+		else = {
+			add_prestige = 5
+			change_exploration_progress = {
+				value = exploration_time
+				multiply = 0.05
+			}
+		}
+	}
 
-# 	after = { 
-# 		owner = { set_variable = wotd_discovered_komodo_dragon }
-# 	}
-# }
+	after = { 
+		owner = { set_variable = wotd_discovered_komodo_dragon }
+	}
+}
+
+# Event 30: Central Bearded Dragon
+wotd_flora_and_fauna.30 = {
+	type = exploration_event
+	title = wotd_flora_and_fauna.30.title
+	desc = wotd_flora_and_fauna.30.desc
+	hide_portraits = yes
+	image = "gfx/interface/illustrations/event/backgrounds/wotd/bearded_dragon.dds"
+
+	trigger = {
+		exploration_progress > 0.05
+		leader ?= {
+			is_alive = yes
+		}
+		owner = { NOT = { has_variable = wotd_discovered_central_bearded_dragon } }
+		location = {
+			region = region:australia_region
+		}
+		area = { is_area_sea = no }
+	}
+
+	immediate = {
+		leader = { save_scope_as = explorer }
+	}
+
+	option = {
+		name = wotd_flora_and_fauna.30.a
+		# "Capture one as a curiosity for the royal court"
+		# owner = {
+		# 	add_country_modifier = { modifier = wotd_exotic_menagerie_modifier years = 3 }
+		# }
+		decrease_peril_effect = {
+			CHANGE = wotd_peril_small_value
+		}
+	}
+
+	option = {
+		name = wotd_flora_and_fauna.30.b
+		# "Study their territorial displays"
+		# scope:explorer = {
+		# 	add_trait = trait:scientist_on_sea
+		# 	add_character_modifier = { modifier = wotd_dragon_observer_modifier years = 3 }
+		# }
+		change_exploration_progress = {
+			value = exploration_time
+			multiply = 0.03
+		}
+	}
+
+	after = { 
+		owner = { set_variable = wotd_discovered_central_bearded_dragon }
+	}
+}

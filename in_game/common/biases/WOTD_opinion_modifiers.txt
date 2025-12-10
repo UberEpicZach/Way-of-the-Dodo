@@ -22,3 +22,9 @@ wotd_gifted_borneo_pygmy_elephant = {
 	value = 50
 	yearly_decay = 1
 }
+
+wotd_attended_red_panda_wedding = {
+	value = 20
+	yearly_decay = 1
+}
+

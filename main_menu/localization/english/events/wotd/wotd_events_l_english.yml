@@ -41,7 +41,7 @@
  wotd_flora_and_fauna.5.desc: "After days adrift from the storm, the winds finally calm and a new island appears on the horizon. Grateful for the sight of land, [explorer.GetName]'s crew makes landfall to gather supplies and survey the shore. While exploring inland, they come across a strange bird unlike any we have seen before. It shows no fear of us, instead pecking curiously at our helmets and boots.\n\nThe creature stands twice the size of a swan, heavy and round-bodied, with wings too small for flight. Judging by its tame nature, it seems to live without predators—and the crew is already wondering what such a bird might taste like."
  wotd_flora_and_fauna.5.desc.colonized:  "After days adrift from the storm, the winds finally calm and a new island appears on the horizon. Grateful for the sight of land, [explorer.GetName]'s crew makes landfall to gather supplies and survey the shore. The island encountered seems inhabited, though we cannot tell whether its people are friend or foe. For now, we hide our ship in a lagoon and wait. There might be some fruit growing nearby."
  wotd_flora_and_fauna.5.a: "And thus it must taste great!"
- wotd_flora_and_fauna.5.a.tt: "#Italics The crew is eager to try the bird's meat, believing it might be a delicacy.#!"
+ wotd_flora_and_fauna.5.a.tt: "#Italic The crew is eager to try the bird's meat, believing it might be a delicacy.#!"
  wotd_flora_and_fauna.5.b: "Kill them! How dare they befoul our helmets!"
  
  wotd_flora_and_fauna.5.b.tt: "#warning What harm could killing a few of these idiot birds do? They are everywhere on this island..#!"
@@ -120,11 +120,28 @@
  DEATH_REASON_crew_mutiny_killer: "[CHARACTER.GetHeSheFormal|U] fell victim to a mutiny carried out by [SCOPE.sCharacter('killer').GetName] and the rest of the crew."
 
  wotd_flora_and_fauna.19.title: "An Etymological Mistake or Farce"
- wotd_flora_and_fauna.19.desc: "While on the Australian coast, [explorer.GetName] sent the crew to shoot pigeons for the sick on board. When the crew returned, they reported seeing an animal about the size of a greyhound, mouse grey, and quick on its feet. A few days later [explorer.GetFirstNameForEditbox] saw the animals as well, sending our naturalist ashore with four companions for an excursion, documenting in a letter the following: \n\n“After marching many miles, we came across four of the same animals. Two of them were chased by the my greyhounds. The animals escaped with long, quick leaps into the thick, tall grass and vanished. They do not move on four legs, they hop forward on their hind legs like a jumping mouse. They hop on their hind legs like jumping mice. When we asked the locals what these creatures were called, they responded back with only one word..."\n #tooltip_label "Kangaroo" #!."
+ wotd_flora_and_fauna.19.desc: "While on the Australian coast, [explorer.GetName] sent the crew to shoot pigeons for the sick on board. When the crew returned, they reported seeing an animal about the size of a greyhound, mouse grey, and quick on its feet. A few days later [explorer.GetFirstNameForEditbox] saw the animals as well, sending our naturalist ashore with four companions for an excursion, documenting in a letter the following: \n\n“After marching many miles, we came across four of the same animals. Two of them chased by the my greyhounds. The animals escaped with long, quick leaps into the thick, tall grass and vanished. They do not move on four legs, they hop on their hind legs like jumping mice. When we asked the locals what these creatures were called, they responded back with only one word..."\n #tooltip_label "Kangaroo" #!."
  wotd_flora_and_fauna.19.a: "Challenge the crew to catch one for sport."
  wotd_kangaroo_chase_success_tt: "#italic After a long and exhausting chase, the crew manages to corner and capture a Joey....for a time.#!"
  wotd_kangaroo_chase_fail_tt: "#italic Despite their best efforts, the crew fails to catch a Joey, and the kangaroos hop away into the distance....was worth a shot#!"
 
+ wotd_flora_and_fauna.20.title: "Squawking Echoes" 
+ wotd_flora_and_fauna.20.desc: "Bright-green parrots with white-ringed eyes, #Italic the Higuaca#!, filled the canopy as the exploration approached a cove in [ROOT.GetExploration.GetLocation.GetName]. As the boats touched shore, [explorer.GetName] directed the men to unload supplies, planning to spend a few days on the island before heading back out to sea. \n\nA parrot swooped down to a low branch, listening closely. “Careful with that crate, it’s worth a thousand pieces of eight!” [explorer.GetFirstNameForEditbox] said with a grin. #T “Pieces of eight! Pieces of eight!”#! the parrot above them shrieked, startling several crew members. One dropped his hammer; another stumbled back in shock. “These birds can talk?”"
+ wotd_flora_and_fauna.20.a: "Speaks clearer than Louis! You're hired, bird!"
+ STATIC_MODIFIER_NAME_wotd_parrot_companion_modifier: "Parrot Companion"
+ STATIC_MODIFIER_DESC_wotd_parrot_companion_modifier: "Echoing the calls of command, this parrot has become a trusted companion on our explorations."
+
+
+ wotd_flora_and_fauna.21.title:0 "A Devil, Tiger or Wolf?"
+ wotd_flora_and_fauna.21.desc:0 "[ROOT.GetExploration.GetLocation.GetName]’s nights have grown increasingly troublesome. During the expedition, [explorer.GetName] has been receiving reports about a strange carnivorous animal prowling around the camp. The crew describes a creature with a wolf-like snout, short upright ears, a stiff tail, and a yellow-brown coat marked with dark stripes along its back.\n\nThough too small to threaten a person, it tears apart traps, raids the food stores, and slips off with any small animal it can catch. Even the sheep brought ashore for supplies are not entirely safe. Its nocturnal habits make it difficult to pursue, and its persistence is beginning to hinder our work on the island.\nUnless these striped beasts are driven off, progress here will continue to suffer."
+ wotd_flora_and_fauna.21.a: "Our Homeland once had wolves. Once."
+ wotd_thylacine_eradication_success_tt: "#italic After a thorough search of the area, the crew manages to track down and eliminate the Thylacine population troubling the exploration.#!"
+ wotd_thylacine_eradication_failure_tt: "#italic Despite their best efforts, the crew fails to locate and eliminate the Thylacine population troubling the exploration.#!"
+ wotd_flora_and_fauna.21.b: "Husbandry? Ha! Dig deep, and dig greedily."
+ wotd_flora_and_fauna.21.c: "Like to see them try and take down a cow..."
+ 
+
+ 
  wotd_flora_and_fauna.22.title: "The Last of the Moa"
  wotd_flora_and_fauna.22.desc: "[explorer.GetName] and the crew have arrived on these shores, entering a land once rich in food and game. When the Māori first settled here, they encountered the great bird they called te kura, the red bird. Towering and flightless, these creatures provided meat hunted with spears, snares, and pit traps. They shared the island with the massive Haast eagle, yet coastal communities faced little danger, as the birds were plentiful and wary.\n\nNow, only a handful of Moa survive, hidden in remote valleys. Tribes that still hunt them do so sparingly, and sightings are rare. Some bring trinkets of Moa bone and feather to trade, but most villagers speak of the birds with caution, describing them as fragile and nearly gone.\n\nThe mission was to chart Terra Australis Incognita and study the Magellanic clouds, yet the stories of these red birds have stirred curiosity. Cartographers urge [explorer.GetName] to explore inland, toward the valleys where the last Moa may linger."
  wotd_flora_and_fauna.22.a: "We're just here to resupply. We'll embark at sunset."
@@ -141,16 +158,6 @@
  brave_explorer: "Brave Explorer"
  desc_brave_explorer: "This explorer is renowned for their fearless spirit and adventurous nature, often venturing into uncharted territories and facing dangers head-on."
  brave_explorer_die_desc: "[CHARACTER.GetHerHis|U] name will live in the many shores, forests, jungles and mountains [CHARACTER.GetSheHe] bravely ventured."
- 
-
- wotd_flora_and_fauna.27.title: "Test"
- wotd_flora_and_fauna.27.desc: "Test event description."
- wotd_flora_and_fauna.27.a: "Option A"
- wotd_flora_and_fauna.27.b: "Option B"
- wotd_you_saved_a_beaver: "You save the animal"
- wotd_you_saved_a_beaver_2: "You didn't save the animal"
-
-
 
  wotd_flora_and_fauna.24.title: "The Pygmy Elephants of Borneo"
  wotd_flora_and_fauna.24.desc: "While traveling through the rainforests of Borneo, [explorer.GetName] and the crew came across a herd of dwarf-sized elephants. These baby-faced creatures have oversized ears, plump bellies, and tails so long they drag behind them as they walk. They are far gentler than the larger Asian elephants we know.\n\nTheir appearance suggests they may descend from domesticated elephants once given as gifts by the Raja of Java to the Raja Baginda of Sulu. Such exchanges were common between rulers of high standing, and the animals were often transported by sea, though these gifts were sometimes more burden than honor.\n\nThe practice has since faded. Java no longer has elephants, and transporting full-sized Asiatic elephants has never appealed to our merchants. These smaller variants, however, may be valuable tools of diplomacy."
@@ -172,6 +179,20 @@
  STATIC_MODIFIER_DESC_wotd_beaver_reintroduction_modifier: "The reintroduction of beavers to our waterways has begun, aiming to restore the natural ecosystem. Their dam-building activities are expected to improve water quality and support local wildlife."
  STATIC_MODIFIER_NAME_wotd_focusing_on_the_classics_modifier: "Focusing on the Classics"
  STATIC_MODIFIER_DESC_wotd_focusing_on_the_classics_modifier: "A renewed focus on classical texts, particularly Pliny the Elder's Natural History, has guided our understanding of natural remedies and alternatives to rare substances. This scholarly approach emphasizes traditional knowledge while fostering careful innovation."
+
+ # Red Panda 
+ wotd_flora_and_fauna.27.title: "A Red Good Luck Charm"
+ wotd_flora_and_fauna.27.desc: "Deep within the misty bamboo forests of [ROOT.GetExploration.GetLocation.GetName], [explorer.GetName] watches as a 'Fire Fox' parts the folliage in front of him, the creature revealing itself. \n\nThe significance of this beast becomes clear in the valley below. Drums beat for a local wedding where the bridegroom clasps a cured red panda hide to his chest as a sacred talisman. Yet the scene holds a strange juxtaposition. A long-standing custom we are told, with diplomats standing among the guests, awkwardly adjusting their own fur headdresses in an attempt to mimic these southern customs.."
+ wotd_flora_and_fauna.27.a: "Such a vivid culture."
+ wotd_flora_and_fauna.27.b: "Spectate the Wedding."
+ wotd_attended_red_panda_wedding: "Attended Red Panda Wedding"
+ wotd_attended_red_panda_wedding_desc: "[discovery_country.GetName]'s explorer attended a local wedding, where the red panda is revered as a symbol of good luck and prosperity."
+
+ 
+ wotd_flora_and_fauna.28.title: "Rampant Mandrill Horde"
+ wotd_flora_and_fauna.28.desc: "Marching further into the [ROOT.GetExploration.GetLocation.GetName], the sight of thousands of advancing monkeys approaching the outskirts of a small thatch village comes into the view of [explorer.GetName] and [explorer.GetHisHer] crew. \n\nKeeping their distance, the crew observes that the forward lines of these monkeys are attacking a group of local villagers. Hours later, with the horde finally gone, the crew approaches the villagers and surveys the rows of crops ripped up and destroyed in the assault of these so-called #Italic Mandrills'#!. \n\nWith groups of roaming animals this large, and hostile to agricultural development, it will be difficult to do anything against these beasts if we ever think about settling a colony here."
+ wotd_flora_and_fauna.28.a: "Option A"
+ wotd_flora_and_fauna.28.b: "Option B"
 
 
  STATIC_MODIFIER_NAME_wotd_ocelot_companion_modifier: "Ocelot Companion"

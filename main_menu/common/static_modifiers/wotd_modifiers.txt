@@ -111,3 +111,10 @@ wotd_moa_science_modifier = {
 	}
 	research_speed_modifier = 0.08
 }
+
+wotd_parrot_companion_modifier = {
+	game_data = {
+		category = character
+	}
+	exploration_mission_speed = 0.10
+}
